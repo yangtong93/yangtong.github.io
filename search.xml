@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>算法</title>
-    <url>/yangtong.github.io/2023/07/10/algorihtm/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
+    <title>Think Different</title>
+    <url>/yangtong.github.io/2023/07/11/thinkdifferent/</url>
+    <content><![CDATA[<p><img src="/yangtong.github.io/images/greatpeople.jpg"></p>
+<blockquote>
+<p>“Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world are the ones who do.”</br><center>— Apple’s “Think Different” commercial, 1997</center></p>
+</blockquote>
+<span id="more"></span>]]></content>
   </entry>
   <entry>
     <title>冒泡排序</title>
@@ -109,6 +107,17 @@
       </tags>
   </entry>
   <entry>
+    <title>算法</title>
+    <url>/yangtong.github.io/2023/07/10/algorihtm/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言</title>
     <url>/yangtong.github.io/2023/07/10/c/</url>
     <content><![CDATA[]]></content>
@@ -175,6 +184,28 @@
       </tags>
   </entry>
   <entry>
+    <title>中间件</title>
+    <url>/yangtong.github.io/2023/07/10/middleware/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络</title>
+    <url>/yangtong.github.io/2023/07/10/network/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/yangtong.github.io/2023/07/10/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -191,27 +222,5 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>网络</title>
-    <url>/yangtong.github.io/2023/07/10/network/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>网络</category>
-      </categories>
-      <tags>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>中间件</title>
-    <url>/yangtong.github.io/2023/07/10/middleware/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>中间件</category>
-      </categories>
-      <tags>
-        <tag>中间件</tag>
-      </tags>
   </entry>
 </search>
