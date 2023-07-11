@@ -10,6 +10,17 @@
 <span id="more"></span>]]></content>
   </entry>
   <entry>
+    <title>算法</title>
+    <url>/yangtong.github.io/2023/07/10/algorihtm/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>冒泡排序</title>
     <url>/yangtong.github.io/2023/07/10/bubble/</url>
     <content><![CDATA[<p>冒泡排序是一种简单的排序算法，它也是一种稳定排序算法。其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。</p>
@@ -99,17 +110,6 @@
 <p>第1轮冒泡排序：1 4 2 5 8<br>第2轮冒泡排序：1 2 4 5 8<br>第3轮冒泡排序：1 2 4 5 8<br>第4轮冒泡排序：1 2 4 5 8<br>第5轮冒泡排序：1 2 4 5 8</p>
 <p>通过分析冒泡排序的实现代码可以得知，该算法的最差时间复杂度为<code>O(n2)</code>，最优时间复杂度为<code>O(n)</code>，平均时间复杂度为 <code>O(n2)</code>。</p>
 ]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法</title>
-    <url>/yangtong.github.io/2023/07/10/algorihtm/</url>
-    <content><![CDATA[]]></content>
       <categories>
         <category>算法</category>
       </categories>
