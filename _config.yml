@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Yangt Tong Blog
-subtitle: '123123'
-description: '567567'
+title: Yang Tong Blog
+subtitle: 'subtitle'
+description: 'description'
 keywords: 'C,C++,Python,C#,金融,软件开发,VTK,可视化,计算机图形学'
 author: Yang Tong
 language: zh-CN
@@ -40,18 +40,21 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -114,11 +117,11 @@ search:
   limit: 10
 
 symbols_count_time:
-  symbols: true
-  time: true
-  total_symbols: true
-  total_time: true
-  exclude_codeblock: false
-  awl: 2    
-  wpm: 275
-  suffix: "mins."
+  symbols: true                # 文章字数统计
+  time: true                   # 文章阅读时长
+  total_symbols: false          # 站点总字数统计
+  total_time: false             # 站点总阅读时长
+  exclude_codeblock: false     # 排除代码字数统计
+  awl: 4                   # Average Word Length
+  wpm: 275                 # Words Per Minute（每分钟阅读词数）
+  suffix: mins.

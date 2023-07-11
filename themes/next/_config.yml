@@ -39,8 +39,8 @@ custom_file_path:
 # Schemes
 #scheme: Muse
 #scheme: Mist
-scheme: Pisces
-#scheme: Gemini
+#scheme: Pisces
+scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -67,11 +67,11 @@ creative_commons:
   license: by-nc-sa
   # Available values: big | small
   size: small
-  sidebar: false
-  post: false
+  sidebar: true
+  post: true
   # You can set a language value if you prefer a translated version of CC license, e.g. deed.zh
   # CC licenses are available in 39 languages, you can find the specific and correct abbreviation you need on https://creativecommons.org
-  language:
+  language: zh-CN
 
 # Open graph settings
 # See: https://hexo.io/docs/helpers#open-graph
@@ -98,7 +98,7 @@ open_graph:
 menu:
   home: / || fa fa-home
   about: /about/ || fa fa-user
-  #tags: /tags/ || fa fa-tags
+  tags: /tags/ || fa fa-tags
   categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
@@ -155,6 +155,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
+  GitHub: https://github.com/yangtong93 || fab fa-github
+  E-Mail: mailto:450756957@qq.com || fa fa-envelope
   #GitHub: https://github.com/yourname || fab fa-github
   #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
@@ -257,8 +259,13 @@ post_meta:
 # Post wordcount display settings
 # Dependencies: https://github.com/next-theme/hexo-word-counter
 symbols_count_time:
-  separated_meta: true
-  item_text_total: false
+  separated_meta: true     # 是否另起一行（true的话不和发表时间等同一行）
+  item_text_post: true     # 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）
+  item_text_total: false   # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）
+  awl: 4                   # Average Word Length
+  wpm: 275                 # Words Per Minute（每分钟阅读词数）
+  suffix: mins.
+
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
@@ -420,7 +427,7 @@ github_banner:
 # ---------------------------------------------------------------
 
 font:
-  enable: false
+  enable: true
 
   # Uri of fonts host, e.g. https://fonts.googleapis.com (Default).
   host:
@@ -433,7 +440,7 @@ font:
   # Global font settings used for all elements inside <body>.
   global:
     external: true
-    family: Lato
+    family: PingFang SC
     size:
 
   # Font settings for site title (.site-title).
@@ -456,7 +463,7 @@ font:
   # Font settings for <code> and code blocks.
   codes:
     external: true
-    family:
+    family: consolas
 
 
 # ---------------------------------------------------------------
@@ -635,7 +642,7 @@ motion:
 # Progress bar in the top during page loading.
 # For more information: https://github.com/CodeByZach/pace
 pace:
-  enable: false
+  enable: true
   # All available colors:
   # black | blue | green | orange | pink | purple | red | silver | white | yellow
   color: blue
@@ -830,7 +837,7 @@ firestore:
 # Show Views / Visitors of the website / page with busuanzi.
 # For more information: http://ibruce.info/2015/04/04/busuanzi/
 busuanzi_count:
-  enable: false
+  enable: true
   total_visitors: true
   total_visitors_icon: fa fa-user
   total_views: true
@@ -926,3 +933,7 @@ vendors:
 css: css
 js: js
 images: images
+
+#auto_excerpt: 
+#  enable: true
+#  length: 100
