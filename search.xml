@@ -18,4 +18,149 @@
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
+  <entry>
+    <title>算法</title>
+    <url>/yangtong.github.io/2023/07/10/algorihtm/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/yangtong.github.io/2023/07/10/datastruct/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C语言</title>
+    <url>/yangtong.github.io/2023/07/10/c/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++</title>
+    <url>/yangtong.github.io/2023/07/10/cplusplus/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++11</title>
+    <url>/yangtong.github.io/2023/07/10/cplusplus11/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>C++11</category>
+      </categories>
+      <tags>
+        <tag>C++11</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>设计模式</title>
+    <url>/yangtong.github.io/2023/07/10/design/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>设计模式</category>
+      </categories>
+      <tags>
+        <tag>设计模式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>中间件</title>
+    <url>/yangtong.github.io/2023/07/10/middleware/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>中间件</category>
+      </categories>
+      <tags>
+        <tag>中间件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>网络</title>
+    <url>/yangtong.github.io/2023/07/10/network/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库</title>
+    <url>/yangtong.github.io/2023/07/10/database/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>冒泡排序</title>
+    <url>/yangtong.github.io/2023/07/10/bubble/</url>
+    <content><![CDATA[<p>冒泡排序是一种简单的排序算法，它也是一种稳定排序算法。其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。</p>
+<blockquote>
+<p>一般情况下，称某个排序算法稳定，指的是当待排序序列中有相同的元素时，它们的相对位置在排序前后不会发生改变。</p>
+</blockquote>
+<p>假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由小到大）排序，则整个排序过程如下所示：</p>
+<ol>
+<li>第一轮排序，此时整个序列中的元素都位于待排序序列，依次扫描每对相邻的元素，并对顺序不正确的元素对交换位置，整个过程如图 1 所示。</li>
+</ol>
+<p><img src="/yangtong.github.io/images/bubble1.gif"><br>图 1 第一轮排序（白色字体表示参与比较的一对相邻元素）</p>
+<p>从图 1 可以看到，经过第一轮冒泡排序，从待排序序列中找出了最大数 8，并将其放到了待排序序列的尾部，并入已排序序列中。</p>
+<ol start="2">
+<li>第二轮排序，此时待排序序列只包含前 4 个元素，依次扫描每对相邻元素，对顺序不正确的元素对交换位置，整个过程如图 2 所示。</li>
+</ol>
+<p><img src="/yangtong.github.io/images/bubble2.gif"><br>图 2 第二轮排序</p>
+<p>可以看到，经过第二轮冒泡排序，从待排序序列中找出了最大数 5，并将其放到了待排序序列的尾部，并入已排序序列中。</p>
+<ol start="3">
+<li>第三轮排序，此时待排序序列包含前 3 个元素，依次扫描每对相邻元素，对顺序不正确的元素对交换位置，整个过程如图 3 所示。</li>
+</ol>
+<p><img src="/yangtong.github.io/images/bubble3.gif"><br>图 3 第三轮排序</p>
+<p>经过本轮冒泡排序，从待排序序列中找出了最大数 4，并将其放到了待排序序列的尾部，并入已排序序列中。</p>
+<ol start="4">
+<li>第四轮排序，此时待排序序列包含前 2 个元素，对其进行冒泡排序的整个过程如图 4 所示。</li>
+</ol>
+<p><img src="/yangtong.github.io/images/bubble4.gif"><br>图 4 第四轮排序</p>
+<p>经过本轮冒泡排序，从待排序序列中找出了最大数 2，并将其放到了待排序序列的尾部，并入已排序序列中。</p>
+<ol start="5">
+<li>当进行第五轮冒泡排序时，由于待排序序列中仅剩 1 个元素，无论再进行相邻元素的比较，因此直接将其并入已排序序列中，此时的序列就认定为已排序好的序列（如图 5 所示）。</li>
+</ol>
+<p><img src="/yangtong.github.io/images/bubble5.gif"><br>图 5 冒泡排序好的序列</p>
+<p>冒泡排序的实现代码为（C 语言）：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="comment">//交换 a 和 b 的位置的函数</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 5</span></span><br><span class="line"><span class="type">int</span> a[N] = &#123; <span class="number">5</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">8</span> &#125;;</span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> *b)</span>;</span><br><span class="line"><span class="comment">//这是带输出的冒泡排序实现函数，从输出结果可以分析冒泡的具体实现流程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">BubSort_test</span><span class="params">()</span>;</span><br><span class="line"><span class="comment">//这是不带输出的冒泡排序实现函数，通过此函数，可直接对数组 a 中元素进行排序</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">BubSort_pro</span><span class="params">()</span>;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    BubSort_test();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span> *a, <span class="type">int</span> *b)</span> &#123;</span><br><span class="line">    <span class="type">int</span> temp;</span><br><span class="line">    temp = *a;</span><br><span class="line">    *a = *b;</span><br><span class="line">    *b = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这是带输出的冒泡排序实现函数，从输出结果，可以看到冒泡的具体实现流程</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">BubSort_test</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="comment">//对待排序序列进行冒泡排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j + <span class="number">1</span> &lt; N - i; j++) &#123;</span><br><span class="line">            <span class="comment">//相邻元素进行比较，当顺序不正确时，交换位置</span></span><br><span class="line">            <span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                swap(&amp;a[j], &amp;a[j + <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//输出本轮冒泡排序之后的序列</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;第%d轮冒泡排序：&quot;</span>, i + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//这是不带输出的冒泡排序实现函数，通过此函数，可直接对数组 a 中元素进行排序</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">BubSort_pro</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="comment">//对待排序序列进行冒泡排序</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j + <span class="number">1</span> &lt; N - i; j++) &#123;</span><br><span class="line">            <span class="comment">//相邻元素进行比较，当顺序不正确时，交换位置</span></span><br><span class="line">            <span class="keyword">if</span> (a[j] &gt; a[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                swap(&amp;a[j], &amp;a[j + <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为：</p>
+<p>第1轮冒泡排序：1 4 2 5 8<br>第2轮冒泡排序：1 2 4 5 8<br>第3轮冒泡排序：1 2 4 5 8<br>第4轮冒泡排序：1 2 4 5 8<br>第5轮冒泡排序：1 2 4 5 8</p>
+<p>通过分析冒泡排序的实现代码可以得知，该算法的最差时间复杂度为<code>O(n2)</code>，最优时间复杂度为<code>O(n)</code>，平均时间复杂度为 <code>O(n2)</code>。</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+      </tags>
+  </entry>
 </search>
