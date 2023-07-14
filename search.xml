@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Think Different</title>
-    <url>/yangtong.github.io/2023/07/11/thinkdifferent/</url>
-    <content><![CDATA[<p><img src="/yangtong.github.io/images/greatpeople.jpg"></p>
-<blockquote>
-<p>“Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world are the ones who do.”</br><center>— Apple’s “Think Different” commercial, 1997</center></p>
-</blockquote>
-<span id="more"></span>]]></content>
-  </entry>
-  <entry>
     <title>算法</title>
     <url>/yangtong.github.io/2023/07/10/algorihtm/</url>
     <content><![CDATA[]]></content>
@@ -23,11 +14,31 @@
   <entry>
     <title>冒泡排序</title>
     <url>/yangtong.github.io/2023/07/10/bubble/</url>
-    <content><![CDATA[<p>冒泡排序是一种简单的排序算法，它也是一种稳定排序算法。其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。</p>
-<blockquote>
-<p>一般情况下，称某个排序算法稳定，指的是当待排序序列中有相同的元素时，它们的相对位置在排序前后不会发生改变。</p>
-</blockquote>
-<p>假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由小到大）排序，则整个排序过程如下所示：</p>
+    <content><![CDATA[<p>冒泡排序是一种简单但常用的排序算法，它通过多次遍历待排序的元素，并比较相邻的元素进行交换，从而逐渐将最大（或最小）的元素推向数组的末尾。</p>
+<p>冒泡排序虽然不是最高效的排序算法，但它具有直观简单、易于理解和实现的特点。理解冒泡排序的原理对于学习其他更高级的排序算法也很有帮助。</p>
+<span id="more"></span>
+
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>冒泡排序基于比较相邻元素的方式，通过不断地交换相邻元素来达到排序的目的。具体步骤如下：</p>
+<ul>
+<li>从数组的第一个元素开始，依次比较相邻的两个元素。</li>
+<li>如果前面的元素比后面的元素大（或小），则交换这两个元素的位置。</li>
+<li>继续按照上述方式比较和交换，直到最大（或最小）的元素被推到数组的末尾。</li>
+<li>重复以上步骤，每次都从数组的开头开始，直到所有元素都被排序</li>
+</ul>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><ul>
+<li><p>时间复杂度：冒泡排序的时间复杂度为O(n^2)，其中n是待排序数组的大小。由于需要进行多次遍历和比较，因此在面对大型数据集时，冒泡排序的性能可能会变得很低效。</p>
+</li>
+<li><p>空间复杂度：冒泡排序只需要使用常量级别的额外空间，因此其空间复杂度为O(1)。</p>
+</li>
+</ul>
+<h2 id="特点和应用场景"><a href="#特点和应用场景" class="headerlink" title="特点和应用场景"></a>特点和应用场景</h2><p>冒泡排序是一种简单直观的排序算法，易于实现。然而，由于其性能较低，通常不适用于大规模数据集。它更适合用于小型或已经部分有序的数组。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>尽管基本的冒泡排序需要进行多次完整的遍历，但可以通过优化来减少比较次数。例如，可以在每次遍历中记录最后一次交换的位置，并将该位置之后的元素视为已排序，从而减少比较的次数。</p>
+<h2 id="算法稳定性"><a href="#算法稳定性" class="headerlink" title="算法稳定性"></a>算法稳定性</h2><p>冒泡排序是一种稳定的排序算法。</p>
+<p>稳定性指的是在排序过程中，具有相同关键字的元素在排序后的序列中保持原有的相对顺序。换句话说，如果两个元素的值相等，并且在排序前的序列中，它们的相对位置是a在b之前，那么在排序后，a仍然会在b之前。</p>
+<p>在冒泡排序中，当比较相邻的元素并进行交换时，只有当前面的元素大于后面的元素时才会发生交换。这意味着相等的元素不会互相交换位置，因此冒泡排序是稳定的。</p>
+<p>由于冒泡排序每次只比较相邻的元素，并根据需要进行交换，相等元素不会被打乱顺序。这种特性使得冒泡排序在需要保持相等元素相对顺序的情况下很有用，例如对对象数组按照某个属性进行排序时，可以确保具有相同属性值的对象保持原有的相对顺序。</p>
+<p>总而言之，冒泡排序是一种稳定的排序算法，可以保持相等元素的相对顺序不变。</p>
+<h2 id="过程与步骤"><a href="#过程与步骤" class="headerlink" title="过程与步骤"></a>过程与步骤</h2><p>假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由小到大）排序，则整个排序过程如下所示：</p>
 <ol>
 <li>第一轮排序，此时整个序列中的元素都位于待排序序列，依次扫描每对相邻的元素，并对顺序不正确的元素对交换位置，整个过程如图 1 所示。</li>
 </ol>
@@ -52,8 +63,7 @@
 <li>当进行第五轮冒泡排序时，由于待排序序列中仅剩 1 个元素，无论再进行相邻元素的比较，因此直接将其并入已排序序列中，此时的序列就认定为已排序好的序列（如图 5 所示）。</li>
 </ol>
 <p><img src="/yangtong.github.io/images/bubble5.gif"><br>图 5 冒泡排序好的序列</p>
-<p>冒泡排序的实现代码为（C 语言）：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<h2 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token comment">//交换 a 和 b 的位置的函数</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">N</span> <span class="token expression"><span class="token number">5</span></span></span>
 <span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">8</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -107,9 +117,11 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运行结果为：</p>
-<p>第1轮冒泡排序：1 4 2 5 8<br>第2轮冒泡排序：1 2 4 5 8<br>第3轮冒泡排序：1 2 4 5 8<br>第4轮冒泡排序：1 2 4 5 8<br>第5轮冒泡排序：1 2 4 5 8</p>
-<p>通过分析冒泡排序的实现代码可以得知，该算法的最差时间复杂度为<code>O(n2)</code>，最优时间复杂度为<code>O(n)</code>，平均时间复杂度为 <code>O(n2)</code>。</p>
-]]></content>
+<pre class="line-numbers language-none"><code class="language-none">第1轮冒泡排序：1 4 2 5 8
+第2轮冒泡排序：1 2 4 5 8
+第3轮冒泡排序：1 2 4 5 8
+第4轮冒泡排序：1 2 4 5 8
+第5轮冒泡排序：1 2 4 5 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
         <category>算法</category>
       </categories>
@@ -164,11 +176,11 @@
   <entry>
     <title>数据结构</title>
     <url>/yangtong.github.io/2023/07/10/datastruct/</url>
-    <content><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+    <content><![CDATA[<blockquote>
 <p>数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<h2 id="概念与定义"><a href="#概念与定义" class="headerlink" title="概念与定义"></a>概念与定义</h2><blockquote>
 <p>数据结构(data structure)是带有结构特性的数据元素的集合，它研究的是数据的逻辑结构和数据的物理结构以及它们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍保持原来的结构类型。</p>
 </blockquote>
 <blockquote>
@@ -193,21 +205,59 @@
 <ol>
 <li>线性结构是非空集。 </li>
 <li>线性结构有且仅有一个开始结点和一个终端结点。 </li>
-<li>线性结构所有结点都最多只有一个直接前驱结点和一个直接后继结点。<br>线性表就是典型的线性结构，还有栈、队列和串等都属于线性结构。</li>
+<li>线性结构所有结点都最多只有一个直接前驱结点和一个直接后继结点。</li>
+</ol>
+<p>常见的线性结构：</p>
+<ol>
+<li>数组（Array）</li>
+<li>链表（Linked List）</li>
+<li>栈（Stack）</li>
+<li>队列（Queue）</li>
+<li>双端队列（Deque）</li>
+<li>线性表（List）</li>
 </ol>
 <h3 id="非线性结构"><a href="#非线性结构" class="headerlink" title="非线性结构"></a>非线性结构</h3><p>简单地说，非线性结构就是表中各个结点之间具有多个对应关系。如果从数据结构的语言来描述，非线性结构应该包括如下几点： </p>
 <ol>
 <li>非线性结构是非空集。 </li>
-<li>非线性结构的一个结点可能有多个直接前驱结点和多个直接后继结点。<br>在实际应用中，数组、广义表、树结构和图结构等数据结构都属于非线性结构。</li>
+<li>非线性结构的一个结点可能有多个直接前驱结点和多个直接后继结点。</li>
 </ol>
-<h2 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h2><h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h3><p>数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。数组可以说是最基本的数据结构，在各种编程语言中都有对应。一个数组可以分解为多个数组元素，按照数据元素的类型，数组可以分为整型数组、字符型数组、浮点型数组、指针数组和结构数组等。数组还可以有一维、二维以及多维等表现形式。 </p>
+<p>常见的非线性结构：</p>
+<ol>
+<li>树（Tree）</li>
+<li>图（Graph）</li>
+<li>堆（Heap）</li>
+<li>散列表（Hash Table）</li>
+<li>图论中的树和森林</li>
+</ol>
+<h2 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h2><h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h3><p>数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。数组可以说是最基本的数据结构，在各种编程语言中都有对应。一个数组可以分解为多个数组元素，按照数据元素的类型，数组可以分为整型数组、字符型数组、浮点型数组、指针数组和结构数组等。数组还可以有一维、二维以及多维等表现形式。 </p>
 <h3 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈( Stack)"></a>栈( Stack)</h3><p>栈是一种特殊的线性表，它只能在一个表的一个固定端进行数据结点的插入和删除操作。栈按照先进后出或后进先出的原则来存储数据，也就是说，先插入的数据将被压入栈底，最后插入的数据在栈顶，读出数据时，从栈顶开始逐个读出。栈在汇编语言程序中，经常用于重要数据的现场保护。栈中没有数据时，称为空栈。 </p>
 <h3 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h3><p>队列和栈类似，也是一种特殊的线性表。和栈不同的是，队列只允许在表的一端进行插入操作，而在另一端进行删除操作。一般来说，进行插入操作的一端称为队尾，进行删除操作的一端称为队头。队列中没有元素时，称为空队列。 </p>
 <h3 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表( Linked List)"></a>链表( Linked List)</h3><p>链表是一种数据元素按照链式存储结构进行存储的数据结构，这种存储结构具有在物理上存在非连续的特点。链表由一系列数据结点构成，每个数据结点包括数据域和指针域两部分。其中，指针域保存了数据结构中下一个元素存放的地址。链表结构中数据元素的逻辑顺序是通过链表中的指针链接次序来实现的。 </p>
+<h2 id="树形数据结构"><a href="#树形数据结构" class="headerlink" title="树形数据结构"></a>树形数据结构</h2><p>树形数据结构是一种分层的、非线性的数据结构，由节点和边组成。它模拟了现实世界中的树结构，具有一个根节点以及零个或多个子节点。树形数据结构在计算机科学中有广泛的应用，如文件系统、数据库索引、组织结构等。</p>
 <h3 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树( Tree)"></a>树( Tree)</h3><p>树是典型的非线性结构，它是包括，2个结点的有穷集合K。在树结构中，有且仅有一个根结点，该结点没有前驱结点。在树结构中的其他结点都有且仅有一个前驱结点，而且可以有两个后继结点，m≥0。 </p>
-<h3 id="图-Graph"><a href="#图-Graph" class="headerlink" title="图(Graph)"></a>图(Graph)</h3><p>图是另一种非线性数据结构。在图结构中，数据结点一般称为顶点，而边是顶点的有序偶对。如果两个顶点之间存在一条边，那么就表示这两个顶点具有相邻关系。 </p>
-<h3 id="堆-Heap"><a href="#堆-Heap" class="headerlink" title="堆(Heap)"></a>堆(Heap)</h3><p>堆是一种特殊的树形数据结构，一般讨论的堆都是二叉堆。堆的特点是根结点的值是所有结点中最小的或者最大的，并且根结点的两个子树也是一个堆结构。 </p>
-<h3 id="散列表-Hash"><a href="#散列表-Hash" class="headerlink" title="散列表(Hash)"></a>散列表(Hash)</h3><p>散列表源自于散列函数(Hash function)，其思想是如果在结构中存在关键字和T相等的记录，那么必定在F(T)的存储位置可以找到该记录，这样就可以不用进行比较操作而直接取得所查记录。 </p>
+<h3 id="二叉树（Binary-Tree）"><a href="#二叉树（Binary-Tree）" class="headerlink" title="二叉树（Binary Tree）"></a>二叉树（Binary Tree）</h3><p>每个节点最多有两个子节点，分别称为左子节点和右子节点。二叉树可以是空树，也可以只有根节点。</p>
+<ul>
+<li>完全二叉树（Complete Binary Tree）：除了最后一层外，其他层的节点都要填满，且最后一层从左到右连续填入节点。</li>
+<li>满二叉树（Full Binary Tree）：每个节点要么没有子节点，要么有两个子节点。<br>二叉搜索树（Binary Search Tree）：二叉搜索树是一种有序的二叉树，其中任意节点的值都大于其左子树中的所有节点的值，而小于其右子树中的所有节点的值。这使得查找、插入和删除操作的时间复杂度可以在平均情况下达到 O(log n)。</li>
+</ul>
+<h3 id="AVL-树（Adelson-Velsky-and-Landis-Tree）"><a href="#AVL-树（Adelson-Velsky-and-Landis-Tree）" class="headerlink" title="AVL 树（Adelson-Velsky and Landis Tree）"></a>AVL 树（Adelson-Velsky and Landis Tree）</h3><p>AVL 树是一种自平衡的二叉搜索树，它通过旋转操作来保持树的平衡性。在 AVL 树中，任意节点的左子树和右子树的高度差（平衡因子）不超过 1。</p>
+<h3 id="红黑树（Red-Black-Tree）"><a href="#红黑树（Red-Black-Tree）" class="headerlink" title="红黑树（Red-Black Tree）"></a>红黑树（Red-Black Tree）</h3><p>红黑树也是一种自平衡的二叉搜索树，它通过颜色标记来保持树的平衡性。在红黑树中，节点被标记为红色或黑色，并且遵循一些规则，如根节点和叶子节点（NIL 节点）都是黑色，红色节点的子节点必须是黑色等。</p>
+<h3 id="B-树（B-Tree）"><a href="#B-树（B-Tree）" class="headerlink" title="B 树（B-Tree）"></a>B 树（B-Tree）</h3><p>B 树是一种多路搜索树，用于处理大量数据的外部存储器操作。它具有多个子节点和一个关键字集合，可以支持高效的插入、删除和查找操作。B 树适用于磁盘或其他随机访问时间较长的存储设备。</p>
+<h3 id="字典树（Trie）"><a href="#字典树（Trie）" class="headerlink" title="字典树（Trie）"></a>字典树（Trie）</h3><p>字典树是一种专门为快速查找和插入单词而设计的树结构。每个节点代表一个字符，并且从根节点到叶子节点的路径构成了一个完整的单词。字典树通常用于实现字典、拼写检查和字符串匹配算法。</p>
+<h2 id="图形数据结构"><a href="#图形数据结构" class="headerlink" title="图形数据结构"></a>图形数据结构</h2><p>图是另一种非线性数据结构。在图结构中，数据结点一般称为顶点，而边是顶点的有序偶对。如果两个顶点之间存在一条边，那么就表示这两个顶点具有相邻关系。</p>
+<h3 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h3><ul>
+<li>无向图是一种图形数据结构，其中的边没有方向或箭头。任意两个节点之间的连接都是双向的。</li>
+<li>无向图可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，用于记录节点之间的连接关系；邻接表是一个链表数组，每个节点都有一个链表存储与其相连的节点。</li>
+</ul>
+<h3 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h3><ul>
+<li>有向图是一种图形数据结构，其中的边具有方向或箭头，表示从一个节点指向另一个节点的关系。</li>
+<li>有向图也可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，其中的元素表示边的方向和权重；邻接表是一个链表数组，每个节点都有一个链表存储从该节点出发的边和目标节点。</li>
+</ul>
+<h3 id="加权图"><a href="#加权图" class="headerlink" title="加权图"></a>加权图</h3><ul>
+<li>加权图是一种图形数据结构，在边上附加了权重或成本信息。这些权重可以表示距离、时间、容量等。</li>
+<li>加权图可以用邻接矩阵或邻接表来表示，与无向图和有向图类似。不同之处在于邻接矩阵的元素表示边的权重，而邻接表中的链表节点包含权重信息。</li>
+</ul>
+<h2 id="散列（哈希）数据结构"><a href="#散列（哈希）数据结构" class="headerlink" title="散列（哈希）数据结构"></a>散列（哈希）数据结构</h2><h3 id="散列表-Hash"><a href="#散列表-Hash" class="headerlink" title="散列表(Hash)"></a>散列表(Hash)</h3><p>散列（哈希）数据结构是一种通过使用哈希函数将键映射到存储位置的数据结构。它可以高效地插入、查找和删除数据。</p>
 ]]></content>
       <categories>
         <category>数据结构</category>
@@ -226,6 +276,24 @@
       <tags>
         <tag>设计模式</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/yangtong.github.io/2023/07/10/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
   </entry>
   <entry>
     <title>中间件</title>
@@ -250,21 +318,151 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/yangtong.github.io/2023/07/10/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <title>Think Different</title>
+    <url>/yangtong.github.io/2023/07/11/thinkdifferent/</url>
+    <content><![CDATA[<p><img src="/yangtong.github.io/images/greatpeople.jpg"></p>
+<blockquote>
+<p>“Here’s to the crazy ones. The misfits. The rebels. The troublemakers. The round pegs in the square holes. The ones who see things differently. They’re not fond of rules. And they have no respect for the status quo. You can quote them, disagree with them, glorify or vilify them. About the only thing you can’t do is ignore them. Because they change things. They push the human race forward. And while some may see them as the crazy ones, we see genius. Because the people who are crazy enough to think they can change the world are the ones who do.”</br><center>— Apple’s “Think Different” commercial, 1997</center></p>
+</blockquote>
+<span id="more"></span>]]></content>
+  </entry>
+  <entry>
+    <title>数组</title>
+    <url>/yangtong.github.io/2023/07/14/array/</url>
+    <content><![CDATA[<blockquote>
+<p>在计算机科学中，数组数据结构（英语：array data structure），简称数组（英语：Array），是由相同类型的元素（element）的集合所组成的数据结构，分配一块连续的内存来存储。利用元素的索引（index）可以计算出该元素对应的存储地址。</p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>数组是一种常见的数据结构，用于存储相同类型的元素的集合。它提供了一种连续的内存空间来存储数据，并使用索引来访问和操作元素。</p>
+<p>数组是一种简单但强大的数据结构，广泛应用于编程和算法中。它提供了高效的元素访问和处理能力，适合用于存储和处理静态或有序的数据集合。</p>
+<span id="more"></span>
+<h2 id="定义和特点"><a href="#定义和特点" class="headerlink" title="定义和特点"></a>定义和特点</h2><p>数组是一个有序的数据集合，其中的元素具有相同的数据类型。数组的大小（即元素数量）在创建时就确定，并且通常在运行时不可更改。每个数组元素都有一个唯一的索引，用于标识其在数组中的位置。</p>
+<p><img src="/yangtong.github.io/images/array1.png"></p>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>数组在内存中以连续的方式存储元素。这意味着数组的各个元素占用相邻的内存地址，可以通过偏移量和元素大小来计算和访问特定索引处的元素。由于连续的内存分配，数组具有快速的随机访问能力。</p>
+<h2 id="索引和访问"><a href="#索引和访问" class="headerlink" title="索引和访问"></a>索引和访问</h2><p>数组中的元素可以通过索引进行访问和操作。索引通常从0开始，依次递增。例如，要访问数组arr中的第i个元素，可以使用arr[i]来获取或修改该元素的值。由于索引从0开始，因此最后一个元素的索引是数组大小减1。</p>
+<h2 id="大小和边界检查"><a href="#大小和边界检查" class="headerlink" title="大小和边界检查"></a>大小和边界检查</h2><p>数组的大小在创建时指定，并且不能动态调整。因此，在使用数组之前，需要明确知道数组的大小。在访问数组元素时，应进行边界检查以确保索引不超出数组范围，否则可能导致访问越界错误。</p>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>除了一维数组外，还可以创建多维数组，如二维、三维等。多维数组在内存中以类似于矩阵的方式排列，通过多个索引来访问元素。例如，二维数组可以使用arr[i][j]的形式来访问其中的元素。</p>
+<h2 id="优点和缺点"><a href="#优点和缺点" class="headerlink" title="优点和缺点"></a>优点和缺点</h2><ul>
+<li>优点：快速随机访问，节省内存空间，直观表示数据的顺序性。</li>
+<li>缺点：大小固定，插入和删除元素的操作效率低，如果需要频繁改变大小或执行插入&#x2F;删除操作，使用动态数据结构（如链表）更合适。</li>
+</ul>
+<h2 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h2><h3 id="声明数组"><a href="#声明数组" class="headerlink" title="声明数组"></a>声明数组</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="初始化数组"><a href="#初始化数组" class="headerlink" title="初始化数组"></a>初始化数组</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    array<span class="token punctuation">[</span> i <span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> 
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="获取数组长度"><a href="#获取数组长度" class="headerlink" title="获取数组长度"></a>获取数组长度</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> array<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> length <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"数组长度为: %d\n"</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="访问数组元素"><a href="#访问数组元素" class="headerlink" title="访问数组元素"></a>访问数组元素</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+ 
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+   <span class="token keyword">int</span> n<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">/* n 是一个包含 10 个整数的数组 */</span>
+   <span class="token keyword">int</span> i<span class="token punctuation">,</span>j<span class="token punctuation">;</span>
+ 
+   <span class="token comment">/* 初始化数组元素 */</span>         
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
+   <span class="token punctuation">&#123;</span>
+        n<span class="token punctuation">[</span> i <span class="token punctuation">]</span> <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment">/* 设置元素 i 为 i + 100 */</span>
+   <span class="token punctuation">&#125;</span>
+   
+   <span class="token comment">/* 输出数组中每个元素的值 */</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span>j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span>
+   <span class="token punctuation">&#123;</span>
+      <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Element[%d] = %d\n"</span><span class="token punctuation">,</span> j<span class="token punctuation">,</span> n<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">&#125;</span>
+ 
+   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多维数组</title>
+    <url>/yangtong.github.io/2023/07/14/multarray/</url>
+    <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>多维数组是一种扩展的数组数据结构，用于存储具有多个维度的元素集合。与一维数组类似，多维数组也提供了连续的内存空间来存储数据，并使用多个索引来访问和操作元素。以下是对多维数组的概述：</p>
+<p>多维数组是一种灵活且强大的数据结构，常用于矩阵、图像处理、科学计算等领域。它提供了一种有效的方式来组织和操作具有多个维度的数据集合，使得数据的表示和处理更加直观和高效。</p>
+<span id="more"></span>
+<h2 id="定义和特点"><a href="#定义和特点" class="headerlink" title="定义和特点"></a>定义和特点</h2><p>多维数组是一个具有多个维度的数据集合，其中的元素具有相同的数据类型。每个维度代表一个独立的索引范围，用于标识元素在多维数组中的位置。例如，二维数组由行和列两个维度组成，可以通过行和列的索引来访问元素。</p>
+<h2 id="内存分配"><a href="#内存分配" class="headerlink" title="内存分配"></a>内存分配</h2><p>多维数组在内存中以类似于矩阵的方式排列，其中的元素按照行优先或列优先的顺序存储。在二维数组中，每行的元素紧邻存放，而各行之间相隔整个一行大小的内存空间。三维及更高维度的数组也遵循类似的规则。</p>
+<h2 id="索引和访问"><a href="#索引和访问" class="headerlink" title="索引和访问"></a>索引和访问</h2><p>多维数组的元素可以通过多个索引进行访问和操作。对于二维数组，可以使用两个索引（行索引和列索引）来指定元素的位置。例如，要访问二维数组arr中的第i行、第j列的元素，可以使用arr[i][j]来获取或修改该元素的值。</p>
+<h2 id="大小和边界检查"><a href="#大小和边界检查" class="headerlink" title="大小和边界检查"></a>大小和边界检查</h2><p>多维数组的大小在创建时指定，并且各个维度的大小可以不相同。在访问多维数组元素时，需要确保每个索引在其对应维度范围内以避免越界错误。</p>
+<h2 id="多维数组的优点和缺点"><a href="#多维数组的优点和缺点" class="headerlink" title="多维数组的优点和缺点"></a>多维数组的优点和缺点</h2><ul>
+<li>优点：多维数组提供了一种方便的方式来存储和处理具有多个维度的数据。它可以直观地表示复杂的结构和关系，并提供高效的元素访问能力。</li>
+<li>缺点：多维数组可能会占用较大的内存空间，尤其是当维度较高时。另外，多维数组的创建和操作可能更复杂和容易出错，特别是在维度和索引管理方面。</li>
+</ul>
+<h2 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h2><h3 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h3><p>一般形式如下</p>
+<pre class="line-numbers language-none"><code class="language-none">type name[size1][size2]...[sizeN];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>例如，下面的声明创建了一个三维 5 x 10 x 4 整型数组：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> threedim<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
+<h3 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h3><p>多维数组最简单的形式是二维数组。一个二维数组，在本质上，是一个一维数组的列表。声明一个 x 行 y 列的二维整型数组，形式如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">type arrayName [ x ][ y ];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>其中，type 可以是任意有效的 C 数据类型，arrayName 是一个有效的 C 标识符。一个二维数组可以被认为是一个带有 x 行和 y 列的表格。下面是一个二维数组，包含 3 行和 4 列：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> x<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/yangtong.github.io/images/muarray.png"></p>
+<p>因此，数组中的每个元素是使用形式为 a[ i , j ] 的元素名称来标识的，其中 a 是数组名称，i 和 j 是唯一标识 a 中每个元素的下标。</p>
+<h3 id="初始化二维数组"><a href="#初始化二维数组" class="headerlink" title="初始化二维数组"></a>初始化二维数组</h3><p>多维数组可以通过在括号内为每行指定值来进行初始化。下面是一个带有 3 行 4 列的数组。</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span>  
+ <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">&#125;</span> <span class="token punctuation">,</span>   <span class="token comment">/*  初始化索引号为 0 的行 */</span>
+ <span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">&#125;</span> <span class="token punctuation">,</span>   <span class="token comment">/*  初始化索引号为 1 的行 */</span>
+ <span class="token punctuation">&#123;</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">&#125;</span>   <span class="token comment">/*  初始化索引号为 2 的行 */</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>内部嵌套的括号是可选的，下面的初始化与上面是等同的：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">11</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token comment">// 定义并初始化一个2x3的二维数组</span>
+<span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="访问二维数组元素"><a href="#访问二维数组元素" class="headerlink" title="访问二维数组元素"></a>访问二维数组元素</h3><p>二维数组中的元素是通过使用下标（即数组的行索引和列索引）来访问的。例如：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">int</span> val <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>上面的语句将获取数组中第 3 行第 4 个元素。您可以通过上面的示意图来进行验证。让我们来看看下面的程序，我们将使用嵌套循环来处理二维数组：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+ 
+<span class="token keyword">int</span> <span class="token function">main</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+   <span class="token comment">/* 一个带有 5 行 2 列的数组 */</span>
+   <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token punctuation">&#123;</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+   <span class="token keyword">int</span> i<span class="token punctuation">,</span> j<span class="token punctuation">;</span>
+ 
+   <span class="token comment">/* 输出数组中每个元素的值 */</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">)</span>
+   <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">;</span> j<span class="token operator">++</span> <span class="token punctuation">)</span>
+      <span class="token punctuation">&#123;</span>
+         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"a[%d][%d] = %d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">,</span>j<span class="token punctuation">,</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+   <span class="token punctuation">&#125;</span>
+   <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>当上面的代码被编译和执行时，它会产生下列结果：</p>
+<pre class="line-numbers language-none"><code class="language-none">a[0][0] &#x3D; 0
+a[0][1] &#x3D; 0
+a[1][0] &#x3D; 1
+a[1][1] &#x3D; 2
+a[2][0] &#x3D; 2
+a[2][1] &#x3D; 4
+a[3][0] &#x3D; 3
+a[3][1] &#x3D; 6
+a[4][0] &#x3D; 4
+a[4][1] &#x3D; 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
   </entry>
 </search>

@@ -21,12 +21,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yangtong93.github.io","root":"/yangtong.github.io/","images":"/yangtong.github.io/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/yangtong.github.io/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/yangtong.github.io/js/config.js"></script>
 
-    <meta name="description" content="冒泡排序是一种简单的排序算法，它也是一种稳定排序算法。其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。  一般情况下，称某个排序算法稳定，指的是当待排序序列中有相同的元素时，它们的相对位置在排序前后不会发生改变。  假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由">
+    <meta name="description" content="冒泡排序是一种简单但常用的排序算法，它通过多次遍历待排序的元素，并比较相邻的元素进行交换，从而逐渐将最大（或最小）的元素推向数组的末尾。 冒泡排序虽然不是最高效的排序算法，但它具有直观简单、易于理解和实现的特点。理解冒泡排序的原理对于学习其他更高级的排序算法也很有帮助。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="冒泡排序">
 <meta property="og:url" content="https://yangtong93.github.io/yangtong.github.io/2023/07/10/bubble/index.html">
 <meta property="og:site_name" content="Yang Tong Blog">
-<meta property="og:description" content="冒泡排序是一种简单的排序算法，它也是一种稳定排序算法。其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。  一般情况下，称某个排序算法稳定，指的是当待排序序列中有相同的元素时，它们的相对位置在排序前后不会发生改变。  假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由">
+<meta property="og:description" content="冒泡排序是一种简单但常用的排序算法，它通过多次遍历待排序的元素，并比较相邻的元素进行交换，从而逐渐将最大（或最小）的元素推向数组的末尾。 冒泡排序虽然不是最高效的排序算法，但它具有直观简单、易于理解和实现的特点。理解冒泡排序的原理对于学习其他更高级的排序算法也很有帮助。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/bubble1.gif">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/bubble2.gif">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/bubble4.gif">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/bubble5.gif">
 <meta property="article:published_time" content="2023-07-10T07:23:38.000Z">
-<meta property="article:modified_time" content="2023-07-11T01:58:06.892Z">
+<meta property="article:modified_time" content="2023-07-14T02:42:14.288Z">
 <meta property="article:author" content="Yang Tong">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -135,7 +135,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -148,6 +148,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%E5%92%8C%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">3.</span> <span class="nav-text">特点和应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%A8%B3%E5%AE%9A%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E4%B8%8E%E6%AD%A5%E9%AA%A4"><span class="nav-number">6.</span> <span class="nav-text">过程与步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0"><span class="nav-number">7.</span> <span class="nav-text">C语言实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/yangtong.github.io/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -245,7 +246,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-11 09:58:06" itemprop="dateModified" datetime="2023-07-11T09:58:06+08:00">2023-07-11</time>
+      <time title="修改时间：2023-07-14 10:42:14" itemprop="dateModified" datetime="2023-07-14T10:42:14+08:00">2023-07-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +272,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -288,11 +289,31 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>冒泡排序是一种简单的排序算法，它也是一种稳定排序算法。其实现原理是重复扫描待排序序列，并比较每一对相邻的元素，当该对元素顺序不正确时进行交换。一直重复这个过程，直到没有任何两个相邻元素可以交换，就表明完成了排序。</p>
-<blockquote>
-<p>一般情况下，称某个排序算法稳定，指的是当待排序序列中有相同的元素时，它们的相对位置在排序前后不会发生改变。</p>
-</blockquote>
-<p>假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由小到大）排序，则整个排序过程如下所示：</p>
+    <div class="post-body" itemprop="articleBody"><p>冒泡排序是一种简单但常用的排序算法，它通过多次遍历待排序的元素，并比较相邻的元素进行交换，从而逐渐将最大（或最小）的元素推向数组的末尾。</p>
+<p>冒泡排序虽然不是最高效的排序算法，但它具有直观简单、易于理解和实现的特点。理解冒泡排序的原理对于学习其他更高级的排序算法也很有帮助。</p>
+<span id="more"></span>
+
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>冒泡排序基于比较相邻元素的方式，通过不断地交换相邻元素来达到排序的目的。具体步骤如下：</p>
+<ul>
+<li>从数组的第一个元素开始，依次比较相邻的两个元素。</li>
+<li>如果前面的元素比后面的元素大（或小），则交换这两个元素的位置。</li>
+<li>继续按照上述方式比较和交换，直到最大（或最小）的元素被推到数组的末尾。</li>
+<li>重复以上步骤，每次都从数组的开头开始，直到所有元素都被排序</li>
+</ul>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><ul>
+<li><p>时间复杂度：冒泡排序的时间复杂度为O(n^2)，其中n是待排序数组的大小。由于需要进行多次遍历和比较，因此在面对大型数据集时，冒泡排序的性能可能会变得很低效。</p>
+</li>
+<li><p>空间复杂度：冒泡排序只需要使用常量级别的额外空间，因此其空间复杂度为O(1)。</p>
+</li>
+</ul>
+<h2 id="特点和应用场景"><a href="#特点和应用场景" class="headerlink" title="特点和应用场景"></a>特点和应用场景</h2><p>冒泡排序是一种简单直观的排序算法，易于实现。然而，由于其性能较低，通常不适用于大规模数据集。它更适合用于小型或已经部分有序的数组。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>尽管基本的冒泡排序需要进行多次完整的遍历，但可以通过优化来减少比较次数。例如，可以在每次遍历中记录最后一次交换的位置，并将该位置之后的元素视为已排序，从而减少比较的次数。</p>
+<h2 id="算法稳定性"><a href="#算法稳定性" class="headerlink" title="算法稳定性"></a>算法稳定性</h2><p>冒泡排序是一种稳定的排序算法。</p>
+<p>稳定性指的是在排序过程中，具有相同关键字的元素在排序后的序列中保持原有的相对顺序。换句话说，如果两个元素的值相等，并且在排序前的序列中，它们的相对位置是a在b之前，那么在排序后，a仍然会在b之前。</p>
+<p>在冒泡排序中，当比较相邻的元素并进行交换时，只有当前面的元素大于后面的元素时才会发生交换。这意味着相等的元素不会互相交换位置，因此冒泡排序是稳定的。</p>
+<p>由于冒泡排序每次只比较相邻的元素，并根据需要进行交换，相等元素不会被打乱顺序。这种特性使得冒泡排序在需要保持相等元素相对顺序的情况下很有用，例如对对象数组按照某个属性进行排序时，可以确保具有相同属性值的对象保持原有的相对顺序。</p>
+<p>总而言之，冒泡排序是一种稳定的排序算法，可以保持相等元素的相对顺序不变。</p>
+<h2 id="过程与步骤"><a href="#过程与步骤" class="headerlink" title="过程与步骤"></a>过程与步骤</h2><p>假设待排序序列为 (5,1,4,2,8)，如果采用冒泡排序对其进行升序（由小到大）排序，则整个排序过程如下所示：</p>
 <ol>
 <li>第一轮排序，此时整个序列中的元素都位于待排序序列，依次扫描每对相邻的元素，并对顺序不正确的元素对交换位置，整个过程如图 1 所示。</li>
 </ol>
@@ -317,8 +338,7 @@
 <li>当进行第五轮冒泡排序时，由于待排序序列中仅剩 1 个元素，无论再进行相邻元素的比较，因此直接将其并入已排序序列中，此时的序列就认定为已排序好的序列（如图 5 所示）。</li>
 </ol>
 <p><img src="/yangtong.github.io/images/bubble5.gif"><br>图 5 冒泡排序好的序列</p>
-<p>冒泡排序的实现代码为（C 语言）：</p>
-<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<h2 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h2><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 <span class="token comment">//交换 a 和 b 的位置的函数</span>
 <span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">N</span> <span class="token expression"><span class="token number">5</span></span></span>
 <span class="token keyword">int</span> a<span class="token punctuation">[</span>N<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">8</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
@@ -372,9 +392,11 @@
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>运行结果为：</p>
-<p>第1轮冒泡排序：1 4 2 5 8<br>第2轮冒泡排序：1 2 4 5 8<br>第3轮冒泡排序：1 2 4 5 8<br>第4轮冒泡排序：1 2 4 5 8<br>第5轮冒泡排序：1 2 4 5 8</p>
-<p>通过分析冒泡排序的实现代码可以得知，该算法的最差时间复杂度为<code>O(n2)</code>，最优时间复杂度为<code>O(n)</code>，平均时间复杂度为 <code>O(n2)</code>。</p>
-
+<pre class="line-numbers language-none"><code class="language-none">第1轮冒泡排序：1 4 2 5 8
+第2轮冒泡排序：1 2 4 5 8
+第3轮冒泡排序：1 2 4 5 8
+第4轮冒泡排序：1 2 4 5 8
+第5轮冒泡排序：1 2 4 5 8<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     

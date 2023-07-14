@@ -21,19 +21,19 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yangtong93.github.io","root":"/yangtong.github.io/","images":"/yangtong.github.io/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/yangtong.github.io/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/yangtong.github.io/js/config.js"></script>
 
-    <meta name="description" content="概述 数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。">
+    <meta name="description" content="数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构">
 <meta property="og:url" content="https://yangtong93.github.io/yangtong.github.io/2023/07/10/datastruct/index.html">
 <meta property="og:site_name" content="Yang Tong Blog">
-<meta property="og:description" content="概述 数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。">
+<meta property="og:description" content="数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/set.png">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/array.png">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/tree.png">
 <meta property="og:image" content="https://yangtong93.github.io/yangtong.github.io/images/graph.png">
 <meta property="article:published_time" content="2023-07-10T07:23:38.000Z">
-<meta property="article:modified_time" content="2023-07-11T07:53:11.689Z">
+<meta property="article:modified_time" content="2023-07-14T02:42:15.015Z">
 <meta property="article:author" content="Yang Tong">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -147,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">研究对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">数据逻辑结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">数据物理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.</span> <span class="nav-text">数据存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">4.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-number">4.1.</span> <span class="nav-text">线性结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">非线性结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">常用数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84-Array"><span class="nav-number">5.1.</span> <span class="nav-text">数组(Array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88-Stack"><span class="nav-number">5.2.</span> <span class="nav-text">栈( Stack)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="nav-number">5.3.</span> <span class="nav-text">队列(Queue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8-Linked-List"><span class="nav-number">5.4.</span> <span class="nav-text">链表( Linked List)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91-Tree"><span class="nav-number">5.5.</span> <span class="nav-text">树( Tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE-Graph"><span class="nav-number">5.6.</span> <span class="nav-text">图(Graph)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86-Heap"><span class="nav-number">5.7.</span> <span class="nav-text">堆(Heap)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8-Hash"><span class="nav-number">5.8.</span> <span class="nav-text">散列表(Hash)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">概念与定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%94%E7%A9%B6%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">研究对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">数据逻辑结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-number">2.2.</span> <span class="nav-text">数据物理结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.3.</span> <span class="nav-text">数据存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">3.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-number">3.1.</span> <span class="nav-text">线性结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">非线性结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">线性数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84-Array"><span class="nav-number">4.1.</span> <span class="nav-text">数组(Array)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88-Stack"><span class="nav-number">4.2.</span> <span class="nav-text">栈( Stack)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="nav-number">4.3.</span> <span class="nav-text">队列(Queue)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8-Linked-List"><span class="nav-number">4.4.</span> <span class="nav-text">链表( Linked List)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">树形数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91-Tree"><span class="nav-number">5.1.</span> <span class="nav-text">树( Tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%88Binary-Tree%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">二叉树（Binary Tree）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AVL-%E6%A0%91%EF%BC%88Adelson-Velsky-and-Landis-Tree%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">AVL 树（Adelson-Velsky and Landis Tree）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91%EF%BC%88Red-Black-Tree%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">红黑树（Red-Black Tree）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B-%E6%A0%91%EF%BC%88B-Tree%EF%BC%89"><span class="nav-number">5.5.</span> <span class="nav-text">B 树（B-Tree）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E5%85%B8%E6%A0%91%EF%BC%88Trie%EF%BC%89"><span class="nav-number">5.6.</span> <span class="nav-text">字典树（Trie）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">6.</span> <span class="nav-text">图形数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%90%91%E5%9B%BE"><span class="nav-number">6.1.</span> <span class="nav-text">无向图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%89%E5%90%91%E5%9B%BE"><span class="nav-number">6.2.</span> <span class="nav-text">有向图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E6%9D%83%E5%9B%BE"><span class="nav-number">6.3.</span> <span class="nav-text">加权图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%A3%E5%88%97%EF%BC%88%E5%93%88%E5%B8%8C%EF%BC%89%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">7.</span> <span class="nav-text">散列（哈希）数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%A3%E5%88%97%E8%A1%A8-Hash"><span class="nav-number">7.1.</span> <span class="nav-text">散列表(Hash)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +160,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/yangtong.github.io/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -245,7 +245,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-11 15:53:11" itemprop="dateModified" datetime="2023-07-11T15:53:11+08:00">2023-07-11</time>
+      <time title="修改时间：2023-07-14 10:42:15" itemprop="dateModified" datetime="2023-07-14T10:42:15+08:00">2023-07-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,14 +271,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>3.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -288,11 +288,11 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+    <div class="post-body" itemprop="articleBody"><blockquote>
 <p>数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<h2 id="概念与定义"><a href="#概念与定义" class="headerlink" title="概念与定义"></a>概念与定义</h2><blockquote>
 <p>数据结构(data structure)是带有结构特性的数据元素的集合，它研究的是数据的逻辑结构和数据的物理结构以及它们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍保持原来的结构类型。</p>
 </blockquote>
 <blockquote>
@@ -317,21 +317,59 @@
 <ol>
 <li>线性结构是非空集。 </li>
 <li>线性结构有且仅有一个开始结点和一个终端结点。 </li>
-<li>线性结构所有结点都最多只有一个直接前驱结点和一个直接后继结点。<br>线性表就是典型的线性结构，还有栈、队列和串等都属于线性结构。</li>
+<li>线性结构所有结点都最多只有一个直接前驱结点和一个直接后继结点。</li>
+</ol>
+<p>常见的线性结构：</p>
+<ol>
+<li>数组（Array）</li>
+<li>链表（Linked List）</li>
+<li>栈（Stack）</li>
+<li>队列（Queue）</li>
+<li>双端队列（Deque）</li>
+<li>线性表（List）</li>
 </ol>
 <h3 id="非线性结构"><a href="#非线性结构" class="headerlink" title="非线性结构"></a>非线性结构</h3><p>简单地说，非线性结构就是表中各个结点之间具有多个对应关系。如果从数据结构的语言来描述，非线性结构应该包括如下几点： </p>
 <ol>
 <li>非线性结构是非空集。 </li>
-<li>非线性结构的一个结点可能有多个直接前驱结点和多个直接后继结点。<br>在实际应用中，数组、广义表、树结构和图结构等数据结构都属于非线性结构。</li>
+<li>非线性结构的一个结点可能有多个直接前驱结点和多个直接后继结点。</li>
 </ol>
-<h2 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h2><h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h3><p>数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。数组可以说是最基本的数据结构，在各种编程语言中都有对应。一个数组可以分解为多个数组元素，按照数据元素的类型，数组可以分为整型数组、字符型数组、浮点型数组、指针数组和结构数组等。数组还可以有一维、二维以及多维等表现形式。 </p>
+<p>常见的非线性结构：</p>
+<ol>
+<li>树（Tree）</li>
+<li>图（Graph）</li>
+<li>堆（Heap）</li>
+<li>散列表（Hash Table）</li>
+<li>图论中的树和森林</li>
+</ol>
+<h2 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h2><h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h3><p>数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。数组可以说是最基本的数据结构，在各种编程语言中都有对应。一个数组可以分解为多个数组元素，按照数据元素的类型，数组可以分为整型数组、字符型数组、浮点型数组、指针数组和结构数组等。数组还可以有一维、二维以及多维等表现形式。 </p>
 <h3 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈( Stack)"></a>栈( Stack)</h3><p>栈是一种特殊的线性表，它只能在一个表的一个固定端进行数据结点的插入和删除操作。栈按照先进后出或后进先出的原则来存储数据，也就是说，先插入的数据将被压入栈底，最后插入的数据在栈顶，读出数据时，从栈顶开始逐个读出。栈在汇编语言程序中，经常用于重要数据的现场保护。栈中没有数据时，称为空栈。 </p>
 <h3 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h3><p>队列和栈类似，也是一种特殊的线性表。和栈不同的是，队列只允许在表的一端进行插入操作，而在另一端进行删除操作。一般来说，进行插入操作的一端称为队尾，进行删除操作的一端称为队头。队列中没有元素时，称为空队列。 </p>
 <h3 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表( Linked List)"></a>链表( Linked List)</h3><p>链表是一种数据元素按照链式存储结构进行存储的数据结构，这种存储结构具有在物理上存在非连续的特点。链表由一系列数据结点构成，每个数据结点包括数据域和指针域两部分。其中，指针域保存了数据结构中下一个元素存放的地址。链表结构中数据元素的逻辑顺序是通过链表中的指针链接次序来实现的。 </p>
+<h2 id="树形数据结构"><a href="#树形数据结构" class="headerlink" title="树形数据结构"></a>树形数据结构</h2><p>树形数据结构是一种分层的、非线性的数据结构，由节点和边组成。它模拟了现实世界中的树结构，具有一个根节点以及零个或多个子节点。树形数据结构在计算机科学中有广泛的应用，如文件系统、数据库索引、组织结构等。</p>
 <h3 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树( Tree)"></a>树( Tree)</h3><p>树是典型的非线性结构，它是包括，2个结点的有穷集合K。在树结构中，有且仅有一个根结点，该结点没有前驱结点。在树结构中的其他结点都有且仅有一个前驱结点，而且可以有两个后继结点，m≥0。 </p>
-<h3 id="图-Graph"><a href="#图-Graph" class="headerlink" title="图(Graph)"></a>图(Graph)</h3><p>图是另一种非线性数据结构。在图结构中，数据结点一般称为顶点，而边是顶点的有序偶对。如果两个顶点之间存在一条边，那么就表示这两个顶点具有相邻关系。 </p>
-<h3 id="堆-Heap"><a href="#堆-Heap" class="headerlink" title="堆(Heap)"></a>堆(Heap)</h3><p>堆是一种特殊的树形数据结构，一般讨论的堆都是二叉堆。堆的特点是根结点的值是所有结点中最小的或者最大的，并且根结点的两个子树也是一个堆结构。 </p>
-<h3 id="散列表-Hash"><a href="#散列表-Hash" class="headerlink" title="散列表(Hash)"></a>散列表(Hash)</h3><p>散列表源自于散列函数(Hash function)，其思想是如果在结构中存在关键字和T相等的记录，那么必定在F(T)的存储位置可以找到该记录，这样就可以不用进行比较操作而直接取得所查记录。 </p>
+<h3 id="二叉树（Binary-Tree）"><a href="#二叉树（Binary-Tree）" class="headerlink" title="二叉树（Binary Tree）"></a>二叉树（Binary Tree）</h3><p>每个节点最多有两个子节点，分别称为左子节点和右子节点。二叉树可以是空树，也可以只有根节点。</p>
+<ul>
+<li>完全二叉树（Complete Binary Tree）：除了最后一层外，其他层的节点都要填满，且最后一层从左到右连续填入节点。</li>
+<li>满二叉树（Full Binary Tree）：每个节点要么没有子节点，要么有两个子节点。<br>二叉搜索树（Binary Search Tree）：二叉搜索树是一种有序的二叉树，其中任意节点的值都大于其左子树中的所有节点的值，而小于其右子树中的所有节点的值。这使得查找、插入和删除操作的时间复杂度可以在平均情况下达到 O(log n)。</li>
+</ul>
+<h3 id="AVL-树（Adelson-Velsky-and-Landis-Tree）"><a href="#AVL-树（Adelson-Velsky-and-Landis-Tree）" class="headerlink" title="AVL 树（Adelson-Velsky and Landis Tree）"></a>AVL 树（Adelson-Velsky and Landis Tree）</h3><p>AVL 树是一种自平衡的二叉搜索树，它通过旋转操作来保持树的平衡性。在 AVL 树中，任意节点的左子树和右子树的高度差（平衡因子）不超过 1。</p>
+<h3 id="红黑树（Red-Black-Tree）"><a href="#红黑树（Red-Black-Tree）" class="headerlink" title="红黑树（Red-Black Tree）"></a>红黑树（Red-Black Tree）</h3><p>红黑树也是一种自平衡的二叉搜索树，它通过颜色标记来保持树的平衡性。在红黑树中，节点被标记为红色或黑色，并且遵循一些规则，如根节点和叶子节点（NIL 节点）都是黑色，红色节点的子节点必须是黑色等。</p>
+<h3 id="B-树（B-Tree）"><a href="#B-树（B-Tree）" class="headerlink" title="B 树（B-Tree）"></a>B 树（B-Tree）</h3><p>B 树是一种多路搜索树，用于处理大量数据的外部存储器操作。它具有多个子节点和一个关键字集合，可以支持高效的插入、删除和查找操作。B 树适用于磁盘或其他随机访问时间较长的存储设备。</p>
+<h3 id="字典树（Trie）"><a href="#字典树（Trie）" class="headerlink" title="字典树（Trie）"></a>字典树（Trie）</h3><p>字典树是一种专门为快速查找和插入单词而设计的树结构。每个节点代表一个字符，并且从根节点到叶子节点的路径构成了一个完整的单词。字典树通常用于实现字典、拼写检查和字符串匹配算法。</p>
+<h2 id="图形数据结构"><a href="#图形数据结构" class="headerlink" title="图形数据结构"></a>图形数据结构</h2><p>图是另一种非线性数据结构。在图结构中，数据结点一般称为顶点，而边是顶点的有序偶对。如果两个顶点之间存在一条边，那么就表示这两个顶点具有相邻关系。</p>
+<h3 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h3><ul>
+<li>无向图是一种图形数据结构，其中的边没有方向或箭头。任意两个节点之间的连接都是双向的。</li>
+<li>无向图可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，用于记录节点之间的连接关系；邻接表是一个链表数组，每个节点都有一个链表存储与其相连的节点。</li>
+</ul>
+<h3 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h3><ul>
+<li>有向图是一种图形数据结构，其中的边具有方向或箭头，表示从一个节点指向另一个节点的关系。</li>
+<li>有向图也可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，其中的元素表示边的方向和权重；邻接表是一个链表数组，每个节点都有一个链表存储从该节点出发的边和目标节点。</li>
+</ul>
+<h3 id="加权图"><a href="#加权图" class="headerlink" title="加权图"></a>加权图</h3><ul>
+<li>加权图是一种图形数据结构，在边上附加了权重或成本信息。这些权重可以表示距离、时间、容量等。</li>
+<li>加权图可以用邻接矩阵或邻接表来表示，与无向图和有向图类似。不同之处在于邻接矩阵的元素表示边的权重，而邻接表中的链表节点包含权重信息。</li>
+</ul>
+<h2 id="散列（哈希）数据结构"><a href="#散列（哈希）数据结构" class="headerlink" title="散列（哈希）数据结构"></a>散列（哈希）数据结构</h2><h3 id="散列表-Hash"><a href="#散列表-Hash" class="headerlink" title="散列表(Hash)"></a>散列表(Hash)</h3><p>散列（哈希）数据结构是一种通过使用哈希函数将键映射到存储位置的数据结构。它可以高效地插入、查找和删除数据。</p>
 
     </div>
 
