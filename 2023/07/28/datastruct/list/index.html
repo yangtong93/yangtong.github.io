@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/yangtong.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/yangtong.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/yangtong.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/yangtong.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/yangtong.github.io/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PingFang+SC:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yangtong93.github.io","root":"/yangtong.github.io/","images":"/yangtong.github.io/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/yangtong.github.io/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/yangtong.github.io/js/config.js"></script>
+
+    <meta name="description" content="队列，又称为伫列（queue），计算机科学中的一种抽象资料类型，是先进先出（FIFO, First-In-First-Out）的线性表。在具体应用中通常用链表或者数组来实现。队列只允许在后端（称为rear）进行插入操作，在前端（称为front）进行删除操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="队列">
+<meta property="og:url" content="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/list/index.html">
+<meta property="og:site_name" content="Yang Tong Blog">
+<meta property="og:description" content="队列，又称为伫列（queue），计算机科学中的一种抽象资料类型，是先进先出（FIFO, First-In-First-Out）的线性表。在具体应用中通常用链表或者数组来实现。队列只允许在后端（称为rear）进行插入操作，在前端（称为front）进行删除操作。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-28T03:23:38.000Z">
+<meta property="article:modified_time" content="2023-07-28T07:44:48.772Z">
+<meta property="article:author" content="Yang Tong">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/list/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/list/","path":"2023/07/28/datastruct/list/","title":"队列"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>队列 | Yang Tong Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/yangtong.github.io/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/yangtong.github.io/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yang Tong Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">subtitle</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/yangtong.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/yangtong.github.io/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/yangtong.github.io/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/yangtong.github.io/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/yangtong.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">定义与目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">特点和属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">C语言实现</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Tong</p>
+  <div class="site-description" itemprop="description">description</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/yangtong.github.io/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/yangtong.github.io/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/yangtong.github.io/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yangtong93" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yangtong93" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:450756957@qq.com" title="E-Mail → mailto:450756957@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/list/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/yangtong.github.io/images/avatar.gif">
+      <meta itemprop="name" content="Yang Tong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Tong Blog">
+      <meta itemprop="description" content="description">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="队列 | Yang Tong Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          队列
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-07-28 11:23:38 / 修改时间：15:44:48" itemprop="dateCreated datePublished" datetime="2023-07-28T11:23:38+08:00">2023-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/yangtong.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>队列，又称为伫列（queue），计算机科学中的一种抽象资料类型，是先进先出（FIFO, First-In-First-Out）的线性表。在具体应用中通常用链表或者数组来实现。队列只允许在后端（称为rear）进行插入操作，在前端（称为front）进行删除操作。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="定义与目的"><a href="#定义与目的" class="headerlink" title="定义与目的"></a>定义与目的</h2><p>队列是一种基本的数据结构，用于存储元素集合，并按照先进先出（First-In-First-Out, FIFO）的原则进行管理。它类似于现实生活中排队等待服务的场景。</p>
+<p>队列的定义包括以下几个关键点：</p>
+<ul>
+<li>元素插入操作只能在队列的末尾进行，而元素移除操作只能从队列的开头进行。</li>
+<li>插入操作称为入队（enqueue），移除操作称为出队（dequeue）。</li>
+<li>队列可以为空，也可以有限制长度。</li>
+<li>队列内元素的顺序由其插入的顺序决定，最早插入的元素最先被移除。</li>
+</ul>
+<p>队列的目的主要在于提供一种有序处理元素的方式，以满足特定的需求。以下是队列的一些常见应用场景和目的：</p>
+<ul>
+<li>任务调度：使用队列可以按照特定的顺序调度和执行任务，确保任务按照先后顺序完成。</li>
+<li>广度优先搜索（BFS）：在图或树的遍历中，使用队列来保存待访问的节点，以确保按层次顺序进行遍历。</li>
+<li>缓冲区：队列可以作为缓冲区，允许生产者将数据放入队列，然后消费者按照相同的顺序取出数据进行处理。</li>
+<li>管理资源共享：多个进程或线程需要访问共享资源时，使用队列可以确保公平地分配资源，避免数据竞争。</li>
+<li>消息传递系统：在分布式系统或通信系统中，消息队列用于实现异步通信，降低系统间耦合性。</li>
+</ul>
+<h2 id="特点和属性"><a href="#特点和属性" class="headerlink" title="特点和属性"></a>特点和属性</h2><p>队列具有以下主要特点和属性：</p>
+<ol>
+<li><p>先进先出（FIFO）：最先插入的元素最先被移除，保持元素按照插入顺序进行处理。</p>
+</li>
+<li><p>插入操作只在队尾：新元素只能被添加到队列的末尾。</p>
+</li>
+<li><p>移除操作只在队头：只能从队列的开头移除元素。</p>
+</li>
+<li><p>有限长度或无限长度：队列可以有限长度，即固定容量，也可以是无限长度，即不受容量限制。</p>
+</li>
+<li><p>空队列和满队列：队列可以为空（没有元素）或满（达到了容量上限）。</p>
+</li>
+</ol>
+<p>对于队列的优势、限制和适用场景，我们可以考虑以下方面的特点：</p>
+<ul>
+<li><p><strong>复杂度分析</strong>：插入（enqueue）和删除（dequeue）操作的时间复杂度为O(1)，即常数时间。因此，队列操作的效率很高。</p>
+</li>
+<li><p><strong>空间要求</strong>：队列通常需要连续的内存空间来存储元素。具体的空间需求取决于队列的长度和元素的大小。</p>
+</li>
+<li><p><strong>操作效率</strong>：由于队列遵循先进先出原则，它在处理需要按照顺序进行的任务时非常有效。然而，如果需要在队列中间插入或删除元素，效率将比较低。</p>
+</li>
+<li><p><strong>适用场景</strong>：队列在许多应用中都非常有用。例如，广度优先搜索（BFS）算法、任务调度、消息传递系统等都可以使用队列来实现。队列还能够解决需要按照特定顺序处理元素的问题。</p>
+</li>
+<li><p><strong>限制</strong>：队列的主要限制之一是容量限制。当队列达到其最大容量时，无法再插入新元素，即队列为满状态。此外，由于插入和删除操作只能在两端进行，如果需要频繁地在队列中间执行插入或删除操作，可能会导致性能下降。</p>
+</li>
+</ul>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>要实现和使用队列，我们可以考虑以下几个基本操作：插入（enqueue）、删除（dequeue）和查找队首元素（peek）。下面是一种基本的队列实现方式：</p>
+<ol>
+<li><p>使用数组：我们可以使用数组来实现队列。创建一个固定大小的数组，并定义两个指针front和rear。</p>
+</li>
+<li><p>插入（enqueue）操作：</p>
+<ul>
+<li>检查队列是否已满。如果rear指针等于数组的长度减1，表示队列已满。</li>
+<li>将新元素添加到rear指针所在位置的后一位。</li>
+<li>更新rear指针，使其指向新添加的元素。</li>
+</ul>
+</li>
+<li><p>删除（dequeue）操作：</p>
+<ul>
+<li>检查队列是否为空。如果front指针等于rear指针，表示队列为空。</li>
+<li>移除front指针所在位置的元素。</li>
+<li>更新front指针，使其指向下一个元素。</li>
+</ul>
+</li>
+<li><p>查找队首元素（peek）操作：</p>
+<ul>
+<li>检查队列是否为空。如果front指针等于rear指针，表示队列为空。</li>
+<li>返回front指针所在位置的元素。</li>
+</ul>
+</li>
+</ol>
+<h2 id="C语言实现"><a href="#C语言实现" class="headerlink" title="C语言实现"></a>C语言实现</h2><p>以下是使用数组实现队列的示例代码（C语言）：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MAX_SIZE</span> <span class="token expression"><span class="token number">100</span></span></span>
+
+<span class="token comment">// 定义队列结构体</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> data<span class="token punctuation">[</span>MAX_SIZE<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> front<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> rear<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> Queue<span class="token punctuation">;</span>
+
+<span class="token comment">// 初始化队列</span>
+<span class="token keyword">void</span> <span class="token function">initQueue</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    queue<span class="token operator">-></span>front <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>rear <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 判断队列是否为空</span>
+<span class="token keyword">int</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>queue<span class="token operator">-></span>front <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> queue<span class="token operator">-></span>rear <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 判断队列是否已满</span>
+<span class="token keyword">int</span> <span class="token function">isFull</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>queue<span class="token operator">-></span>rear <span class="token operator">==</span> MAX_SIZE <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 入队操作</span>
+<span class="token keyword">void</span> <span class="token function">enqueue</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isFull</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Queue is full. Cannot enqueue %d\n"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>front <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    queue<span class="token operator">-></span>rear<span class="token operator">++</span><span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>data<span class="token punctuation">[</span>queue<span class="token operator">-></span>rear<span class="token punctuation">]</span> <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d enqueued successfully.\n"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 出队操作</span>
+<span class="token keyword">int</span> <span class="token function">dequeue</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Queue is empty. Cannot dequeue.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span> value <span class="token operator">=</span> queue<span class="token operator">-></span>data<span class="token punctuation">[</span>queue<span class="token operator">-></span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>queue<span class="token operator">-></span>front <span class="token operator">==</span> queue<span class="token operator">-></span>rear<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>front <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        queue<span class="token operator">-></span>rear <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>front<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d dequeued successfully.\n"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 查找队首元素</span>
+<span class="token keyword">int</span> <span class="token function">peek</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Queue is empty. Cannot peek.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> queue<span class="token operator">-></span>data<span class="token punctuation">[</span>queue<span class="token operator">-></span>front<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    Queue myQueue<span class="token punctuation">;</span>
+    <span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> frontElement <span class="token operator">=</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Front element: %d\n"</span><span class="token punctuation">,</span> frontElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    frontElement <span class="token operator">=</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Front element after dequeuing: %d\n"</span><span class="token punctuation">,</span> frontElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在上述示例代码中，我们使用了一个包含固定大小数组的队列结构体。通过<code>initQueue</code>函数初始化队列，并用<code>enqueue</code>和<code>dequeue</code>函数进行元素的入队和出队操作。<code>peek</code>函数用于查找队首元素。最后，在<code>main</code>函数中展示了如何创建队列、进行基本操作，并输出一些结果。</p>
+<p>以下是使用链表实现队列的示例代码（C语言）：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token comment">// 定义链表节点结构体</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">Node</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> data<span class="token punctuation">;</span>
+    <span class="token keyword">struct</span> <span class="token class-name">Node</span><span class="token operator">*</span> next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> Node<span class="token punctuation">;</span>
+
+<span class="token comment">// 定义队列结构体</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token punctuation">&#123;</span>
+    Node<span class="token operator">*</span> front<span class="token punctuation">;</span>
+    Node<span class="token operator">*</span> rear<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> Queue<span class="token punctuation">;</span>
+
+<span class="token comment">// 初始化队列</span>
+<span class="token keyword">void</span> <span class="token function">initQueue</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    queue<span class="token operator">-></span>front <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    queue<span class="token operator">-></span>rear <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 判断队列是否为空</span>
+<span class="token keyword">int</span> <span class="token function">isEmpty</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>queue<span class="token operator">-></span>front <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">&amp;&amp;</span> queue<span class="token operator">-></span>rear <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 入队操作</span>
+<span class="token keyword">void</span> <span class="token function">enqueue</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">,</span> <span class="token keyword">int</span> value<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    Node<span class="token operator">*</span> newNode <span class="token operator">=</span> <span class="token punctuation">(</span>Node<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>Node<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    newNode<span class="token operator">-></span>data <span class="token operator">=</span> value<span class="token punctuation">;</span>
+    newNode<span class="token operator">-></span>next <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>front <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        queue<span class="token operator">-></span>rear <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>rear<span class="token operator">-></span>next <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+        queue<span class="token operator">-></span>rear <span class="token operator">=</span> newNode<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d enqueued successfully.\n"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 出队操作</span>
+<span class="token keyword">int</span> <span class="token function">dequeue</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Queue is empty. Cannot dequeue.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">int</span> value<span class="token punctuation">;</span>
+    Node<span class="token operator">*</span> temp <span class="token operator">=</span> queue<span class="token operator">-></span>front<span class="token punctuation">;</span>
+    value <span class="token operator">=</span> temp<span class="token operator">-></span>data<span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>queue<span class="token operator">-></span>front <span class="token operator">==</span> queue<span class="token operator">-></span>rear<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>front <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+        queue<span class="token operator">-></span>rear <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        queue<span class="token operator">-></span>front <span class="token operator">=</span> queue<span class="token operator">-></span>front<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token function">free</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d dequeued successfully.\n"</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 查找队首元素</span>
+<span class="token keyword">int</span> <span class="token function">peek</span><span class="token punctuation">(</span>Queue<span class="token operator">*</span> queue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isEmpty</span><span class="token punctuation">(</span>queue<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Queue is empty. Cannot peek.\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> queue<span class="token operator">-></span>front<span class="token operator">-></span>data<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    Queue myQueue<span class="token punctuation">;</span>
+    <span class="token function">initQueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">enqueue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">int</span> frontElement <span class="token operator">=</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Front element: %d\n"</span><span class="token punctuation">,</span> frontElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    frontElement <span class="token operator">=</span> <span class="token function">peek</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>myQueue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Front element after dequeuing: %d\n"</span><span class="token punctuation">,</span> frontElement<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在上述示例代码中，我们使用一个包含链表节点的队列结构体。通过<code>initQueue</code>函数初始化队列，并用<code>enqueue</code>和<code>dequeue</code>函数进行元素的入队和出队操作。<code>peek</code>函数用于查找队首元素。最后，在<code>main</code>函数中展示了如何创建队列、进行基本操作，并输出一些结果。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Yang Tong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/list/" title="队列">https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/list/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/yangtong.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/yangtong.github.io/2023/07/28/datastruct/stack/" rel="prev" title="栈">
+                  <i class="fa fa-chevron-left"></i> 栈
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/yangtong.github.io/2023/07/28/datastruct/linklist/" rel="next" title="链表">
+                  链表 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yang Tong</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/yangtong.github.io/js/comments.js"></script><script src="/yangtong.github.io/js/utils.js"></script><script src="/yangtong.github.io/js/motion.js"></script><script src="/yangtong.github.io/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/yangtong.github.io/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/yangtong.github.io/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

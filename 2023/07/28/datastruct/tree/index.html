@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/yangtong.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/yangtong.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/yangtong.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/yangtong.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/yangtong.github.io/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PingFang+SC:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yangtong93.github.io","root":"/yangtong.github.io/","images":"/yangtong.github.io/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/yangtong.github.io/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/yangtong.github.io/js/config.js"></script>
+
+    <meta name="description" content="在计算机科学中，树（英语：tree）是一种抽象数据类型（ADT）或是实现这种抽象数据类型的数据结构，用来模拟具有树状结构性质的数据集合。它是由n（n&gt;0）个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树">
+<meta property="og:url" content="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/tree/index.html">
+<meta property="og:site_name" content="Yang Tong Blog">
+<meta property="og:description" content="在计算机科学中，树（英语：tree）是一种抽象数据类型（ADT）或是实现这种抽象数据类型的数据结构，用来模拟具有树状结构性质的数据集合。它是由n（n&gt;0）个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-28T05:23:38.000Z">
+<meta property="article:modified_time" content="2023-07-28T08:07:55.798Z">
+<meta property="article:author" content="Yang Tong">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/tree/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/tree/","path":"2023/07/28/datastruct/tree/","title":"树"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>树 | Yang Tong Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/yangtong.github.io/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/yangtong.github.io/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yang Tong Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">subtitle</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/yangtong.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/yangtong.github.io/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/yangtong.github.io/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/yangtong.github.io/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/yangtong.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%B8%8E%E7%9B%AE%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">定义与目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9%E4%B8%8E%E5%B1%9E%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">特点与属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">实现</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Tong</p>
+  <div class="site-description" itemprop="description">description</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/yangtong.github.io/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/yangtong.github.io/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/yangtong.github.io/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yangtong93" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yangtong93" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:450756957@qq.com" title="E-Mail → mailto:450756957@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/yangtong.github.io/images/avatar.gif">
+      <meta itemprop="name" content="Yang Tong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Tong Blog">
+      <meta itemprop="description" content="description">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="树 | Yang Tong Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          树
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-07-28 13:23:38 / 修改时间：16:07:55" itemprop="dateCreated datePublished" datetime="2023-07-28T13:23:38+08:00">2023-07-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/yangtong.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>在计算机科学中，树（英语：tree）是一种抽象数据类型（ADT）或是实现这种抽象数据类型的数据结构，用来模拟具有树状结构性质的数据集合。它是由n（n&gt;0）个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="定义与目的"><a href="#定义与目的" class="headerlink" title="定义与目的"></a>定义与目的</h2><p>树是一种非线性的数据结构，它由节点（node）组成，并且这些节点之间存在特定的层次关系。树的定义如下：</p>
+<p>树是一个包含n（n &gt;&#x3D; 0）个节点的有限集合。</p>
+<ul>
+<li>如果n &#x3D; 0，则称为空树。</li>
+<li>否则，树由一个称为根节点（root）的特殊节点以及其他n - 1个不相交的子树T1、T2、…、Tn组成，每个子树本身也是一棵树。</li>
+</ul>
+<p>树的目的是用于组织和存储数据，并提供高效地搜索、插入和删除数据的操作。树这种数据结构在计算机科学中应用广泛，常见的应用场景包括：</p>
+<ol>
+<li><p>层次结构表示：树可以用来表示具有层次关系的数据，例如文件系统的目录结构、网站的导航菜单等。</p>
+</li>
+<li><p>搜索和排序：二叉搜索树是一种基于树的数据结构，可以快速地搜索和排序数据。它具有良好的查找、插入和删除性能。</p>
+</li>
+<li><p>表达关联关系：树可以用来表示具有父子关系或关联关系的数据，例如家谱、组织架构图等。</p>
+</li>
+<li><p>算法实现：许多经典的算法和数据结构都基于树的概念，例如平衡二叉树、堆、哈夫曼树等。</p>
+</li>
+</ol>
+<h2 id="特点与属性"><a href="#特点与属性" class="headerlink" title="特点与属性"></a>特点与属性</h2><p>树这种数据结构具有以下主要特点和属性：</p>
+<ol>
+<li><p>层次关系：树的节点之间存在层次关系，每个节点都可以有零个或多个子节点，除了根节点外，其他节点都有一个父节点。</p>
+</li>
+<li><p>根节点和叶子节点：树的顶部节点被称为根节点，它没有父节点。没有子节点的节点称为叶子节点。根据根节点与叶子节点之间的路径长度，树可以被划分为不同的层级。</p>
+</li>
+<li><p>分支因子：树的分支因子是指每个节点的子节点数量。二叉树是一种特殊的树，每个节点最多只有两个子节点，即分支因子为2。</p>
+</li>
+<li><p>深度和高度：树的深度是从根节点到任意节点的路径长度。树的高度是从根节点到最远叶子节点的路径长度。</p>
+</li>
+<li><p>无环性质：树是无环的，即不存在任何节点之间的回路。</p>
+</li>
+</ol>
+<p>树具有以下优势：</p>
+<ul>
+<li>快速搜索：树的结构使得在包含大量数据时，能够快速搜索目标元素，时间复杂度通常为O(log n)。</li>
+<li>插入和删除效率高：树的插入和删除操作通常比线性结构（如数组）的操作效率更高。</li>
+<li>数据分层组织：树的层次结构可以方便地表示和操作具有层次关系的数据，例如文件系统的目录结构。</li>
+</ul>
+<p>然而，树也有一些限制和适用场景：</p>
+<ul>
+<li>内存消耗：树的节点需要额外的空间来存储子节点的引用，因此在存储大量数据时，可能需要较多的内存空间。</li>
+<li>平衡性维护：某些树类型（如二叉搜索树）在插入和删除操作后可能变得不平衡，导致搜索性能下降。为了保持平衡，可能需要额外的操作成本。</li>
+<li>不适合有序数据：对于已经有序的数据集合，树的优势可能不明显，可能会选择其他更适合的数据结构。</li>
+</ul>
+<p>树适用于以下场景：</p>
+<ul>
+<li>层次关系表示：需要表达分层关系的数据结构，如组织架构、家谱等。</li>
+<li>快速搜索：需要在大量数据中快速搜索目标元素，例如数据库索引、哈希表等。</li>
+<li>排序和范围查询：树可以支持高效的排序和范围查询操作，例如二叉搜索树和B树。</li>
+<li>数据组织和管理：树可以用于管理和组织具有层次结构的数据，例如文件系统、网络路由表等。</li>
+</ul>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>树这种数据结构有以下几种基本操作：</p>
+<ol>
+<li><p>插入（Insertion）：向树中添加一个新节点。插入操作需要考虑树的特定规则，如二叉搜索树中插入节点时需要保持左子节点小于父节点、右子节点大于父节点的性质。</p>
+</li>
+<li><p>删除（Deletion）：从树中移除一个节点。删除操作也需要遵循树的规则，例如在二叉搜索树中删除节点时需要调整树结构以保持排序性质。</p>
+</li>
+<li><p>查找（Search）：在树中搜索指定值或关键字。查找可以是深度优先搜索（DFS）或广度优先搜索（BFS）的形式，具体取决于树的遍历方式。</p>
+</li>
+<li><p>遍历（Traversal）：按照一定顺序访问树中的所有节点。常见的树遍历算法包括前序遍历、中序遍历和后序遍历，它们定义了节点的访问次序。</p>
+</li>
+<li><p>最小值和最大值查找：在树中查找最小值和最大值。在二叉搜索树中，最小值位于最左边的叶子节点，最大值位于最右边的叶子节点。</p>
+</li>
+<li><p>树的高度和大小计算：计算树的高度（从根节点到最远叶子节点的路径长度）和大小（树中节点的总数）。</p>
+</li>
+<li><p>平衡检查和平衡操作：对于具有平衡性要求的树，例如AVL树或红黑树，需要执行平衡检查和相应的平衡操作，以确保树的高度平衡。</p>
+</li>
+<li><p>迭代器操作：提供迭代器来顺序访问树的所有元素。迭代器可以按照预定义的顺序遍历树中的节点。</p>
+</li>
+</ol>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>以下是一个简单的树的C语言实现示例：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+
+<span class="token comment">// 树节点结构定义</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> <span class="token class-name">TreeNode</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> data<span class="token punctuation">;</span>                 <span class="token comment">// 节点数据</span>
+    <span class="token keyword">struct</span> <span class="token class-name">TreeNode</span><span class="token operator">*</span> left<span class="token punctuation">;</span>    <span class="token comment">// 左子节点指针</span>
+    <span class="token keyword">struct</span> <span class="token class-name">TreeNode</span><span class="token operator">*</span> right<span class="token punctuation">;</span>   <span class="token comment">// 右子节点指针</span>
+<span class="token punctuation">&#125;</span> TreeNode<span class="token punctuation">;</span>
+
+<span class="token comment">// 创建一个新节点</span>
+TreeNode<span class="token operator">*</span> <span class="token function">createNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    TreeNode<span class="token operator">*</span> newNode <span class="token operator">=</span> <span class="token punctuation">(</span>TreeNode<span class="token operator">*</span><span class="token punctuation">)</span><span class="token function">malloc</span><span class="token punctuation">(</span><span class="token keyword">sizeof</span><span class="token punctuation">(</span>TreeNode<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>newNode <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"内存分配失败！\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">exit</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    newNode<span class="token operator">-></span>data <span class="token operator">=</span> data<span class="token punctuation">;</span>
+    newNode<span class="token operator">-></span>left <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    newNode<span class="token operator">-></span>right <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> newNode<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 插入节点</span>
+TreeNode<span class="token operator">*</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">createNode</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">&lt;</span> root<span class="token operator">-></span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        root<span class="token operator">-></span>left <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">></span> root<span class="token operator">-></span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        root<span class="token operator">-></span>right <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token operator">-></span>right<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 在树中搜索指定值</span>
+TreeNode<span class="token operator">*</span> <span class="token function">searchNode</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> <span class="token constant">NULL</span> <span class="token operator">||</span> root<span class="token operator">-></span>data <span class="token operator">==</span> data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> root<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>data <span class="token operator">&lt;</span> root<span class="token operator">-></span>data<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">searchNode</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">searchNode</span><span class="token punctuation">(</span>root<span class="token operator">-></span>right<span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 中序遍历打印树节点</span>
+<span class="token keyword">void</span> <span class="token function">inorderTraversal</span><span class="token punctuation">(</span>TreeNode<span class="token operator">*</span> root<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">inorderTraversal</span><span class="token punctuation">(</span>root<span class="token operator">-></span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> root<span class="token operator">-></span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">inorderTraversal</span><span class="token punctuation">(</span>root<span class="token operator">-></span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 主函数测试树的功能</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    TreeNode<span class="token operator">*</span> root <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 插入节点</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">60</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    root <span class="token operator">=</span> <span class="token function">insertNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 中序遍历打印树节点</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"中序遍历结果："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">inorderTraversal</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 搜索节点</span>
+    <span class="token keyword">int</span> searchData <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+    TreeNode<span class="token operator">*</span> searchResult <span class="token operator">=</span> <span class="token function">searchNode</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> searchData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>searchResult <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"找到了节点 %d\n"</span><span class="token punctuation">,</span> searchData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"未找到节点 %d\n"</span><span class="token punctuation">,</span> searchData<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个示例中，我们定义了一个<code>TreeNode</code>结构表示树的节点，在<code>createNode</code>函数中创建了新节点。<code>insertNode</code>函数用于插入新节点到树中，并保持排序性质。<code>searchNode</code>函数用于在树中搜索指定值。<code>inorderTraversal</code>函数用于中序遍历打印树节点。</p>
+<p>在主函数中，我们通过调用<code>insertNode</code>函数插入节点到树中，并使用<code>inorderTraversal</code>函数进行中序遍历打印树节点。然后，我们使用<code>searchNode</code>函数搜索特定的值。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Yang Tong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/tree/" title="树">https://yangtong93.github.io/yangtong.github.io/2023/07/28/datastruct/tree/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/yangtong.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/yangtong.github.io/2023/07/28/datastruct/linklist/" rel="prev" title="链表">
+                  <i class="fa fa-chevron-left"></i> 链表
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/yangtong.github.io/2023/07/28/datastruct/bplustree/" rel="next" title="B+树">
+                  B+树 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yang Tong</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/yangtong.github.io/js/comments.js"></script><script src="/yangtong.github.io/js/utils.js"></script><script src="/yangtong.github.io/js/motion.js"></script><script src="/yangtong.github.io/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/yangtong.github.io/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/yangtong.github.io/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
