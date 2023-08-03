@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/yangtong.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/yangtong.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/yangtong.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/yangtong.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/yangtong.github.io/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PingFang+SC:300,300italic,400,400italic,700,700italic%7Cconsolas:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"yangtong93.github.io","root":"/yangtong.github.io/","images":"/yangtong.github.io/images","scheme":"Gemini","darkmode":false,"version":"8.17.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/yangtong.github.io/search.xml","localsearch":{"enable":"auto","trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/yangtong.github.io/js/config.js"></script>
+
+    <meta name="description" content="冒泡排序（Bubble Sort）是一种简单但低效的排序算法。其基本思想是通过不断比较相邻的元素并交换位置，将最大（或最小）的元素逐渐“冒泡”到序列的末尾（或开头），从而实现排序。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="冒泡排序">
+<meta property="og:url" content="https://yangtong93.github.io/yangtong.github.io/2023/08/03/algorihtm/bubble/index.html">
+<meta property="og:site_name" content="Yang Tong Blog">
+<meta property="og:description" content="冒泡排序（Bubble Sort）是一种简单但低效的排序算法。其基本思想是通过不断比较相邻的元素并交换位置，将最大（或最小）的元素逐渐“冒泡”到序列的末尾（或开头），从而实现排序。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-03T08:33:38.000Z">
+<meta property="article:modified_time" content="2023-08-03T09:14:34.232Z">
+<meta property="article:author" content="Yang Tong">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://yangtong93.github.io/yangtong.github.io/2023/08/03/algorihtm/bubble/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yangtong93.github.io/yangtong.github.io/2023/08/03/algorihtm/bubble/","path":"2023/08/03/algorihtm/bubble/","title":"冒泡排序"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>冒泡排序 | Yang Tong Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/yangtong.github.io/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/yangtong.github.io/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yang Tong Blog</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">subtitle</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/yangtong.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/yangtong.github.io/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/yangtong.github.io/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/yangtong.github.io/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/yangtong.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A8%B3%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.</span> <span class="nav-text">稳定性与复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E8%AF%A6%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">步骤详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">5.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">6.</span> <span class="nav-text">优化方法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Yang Tong</p>
+  <div class="site-description" itemprop="description">description</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/yangtong.github.io/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/yangtong.github.io/categories/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/yangtong.github.io/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yangtong93" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yangtong93" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:450756957@qq.com" title="E-Mail → mailto:450756957@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yangtong93.github.io/yangtong.github.io/2023/08/03/algorihtm/bubble/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/yangtong.github.io/images/avatar.gif">
+      <meta itemprop="name" content="Yang Tong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yang Tong Blog">
+      <meta itemprop="description" content="description">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="冒泡排序 | Yang Tong Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          冒泡排序
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-08-03 16:33:38 / 修改时间：17:14:34" itemprop="dateCreated datePublished" datetime="2023-08-03T16:33:38+08:00">2023-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/yangtong.github.io/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>冒泡排序（Bubble Sort）是一种简单但低效的排序算法。其基本思想是通过不断比较相邻的元素并交换位置，将最大（或最小）的元素逐渐“冒泡”到序列的末尾（或开头），从而实现排序。</p>
+<span id="more"></span>
+
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><ol>
+<li>从待排序的数组的第一个元素开始，依次比较每一对相邻的元素。</li>
+<li>如果当前元素大于（或小于）它的下一个元素，则交换这两个元素的位置，使较大（或较小）的元素“浮”到前面。</li>
+<li>继续重复步骤2，对剩余的元素进行相同的操作，直到最后一个元素。</li>
+<li>一轮比较过程完成后，最大（或最小）的元素已经移动到了序列的末尾（或开头）。</li>
+<li>重复步骤1~4，对剩余未排序的元素进行相同的操作，直到所有元素都排序完成。</li>
+</ol>
+<p>冒泡排序每一轮都会将最大（或最小）的元素“浮”到末尾（或开头），因此在每一轮排序中都可以减少一个元素的比较次数。最坏情况下，需要进行n-1轮比较和移动操作，其中n为待排序元素的个数。冒泡排序的时间复杂度为O(n^2)。</p>
+<p>尽管冒泡排序的效率较低，但由于其实现简单直观，对于小规模的数据集仍然具有一定的应用价值。此外，冒泡排序也是稳定的排序算法，相等元素的相对顺序不会改变。</p>
+<h2 id="稳定性与复杂度"><a href="#稳定性与复杂度" class="headerlink" title="稳定性与复杂度"></a>稳定性与复杂度</h2><p>冒泡排序（Bubble Sort）是一种简单且容易理解的排序算法，它通过相邻元素之间的比较和交换来进行排序。冒泡排序的时间复杂度、空间复杂度和稳定性如下：</p>
+<p>时间复杂度：冒泡排序的平均时间复杂度和最坏情况下的时间复杂度都是O(n^2)，其中n是待排序序列的长度。在最好情况下，即待排序序列已经完全有序的情况下，冒泡排序的时间复杂度可以是O(n)。但由于每次循环都需要执行两两比较和可能的交换操作，所以总体时间复杂度仍然是O(n^2)。</p>
+<p>空间复杂度：冒泡排序的空间复杂度是O(1)，因为只需要常数级别的额外空间来存储临时变量，不会随着待排序序列的增长而增加额外的空间消耗。</p>
+<p>稳定性：冒泡排序是一种稳定的排序算法。稳定性指的是如果待排序序列中存在相等元素，经过排序后相等元素之间的相对顺序保持不变。在冒泡排序中，通过相邻元素之间的比较和交换，只有当相邻元素大小不符合排序规则时才进行交换，所以相等元素之间的相对顺序不会改变，即冒泡排序是一种稳定的排序算法。</p>
+<p>需要注意的是，尽管冒泡排序的时间复杂度较高，但在某些特定情况下（如待排序序列已经基本有序），它可能具有较好的性能表现。然而，在实际应用中，根据具体情况选择合适的排序算法，综合考虑数据规模、时间复杂度要求以及稳定性等因素。</p>
+<h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><p>冒泡排序（Bubble Sort）是一种简单的排序算法，它通过多次遍历待排序的数组，并比较相邻元素的大小来进行排序。在每次遍历中，较大的元素会逐渐“浮”到数组的末尾，故称为冒泡排序。下面是冒泡排序的详细步骤：</p>
+<ol>
+<li><p><strong>从第一个元素开始</strong>：从数组的第一个元素开始，依次比较相邻的两个元素的大小。</p>
+</li>
+<li><p><strong>比较相邻元素</strong>：将当前元素与其后面的相邻元素进行比较，如果当前元素大于后面的元素，则交换这两个元素的位置，使较大的元素“冒泡”。</p>
+</li>
+<li><p><strong>向后遍历</strong>：继续向后遍历，重复执行步骤2，直到遍历到倒数第二个元素。此时，最大的元素已经“冒泡”到了数组的最后一个位置。</p>
+</li>
+<li><p><strong>重复遍历步骤</strong>：重复执行上述步骤，每次遍历范围缩小一个元素，直到整个数组有序。</p>
+</li>
+<li><p><strong>优化处理</strong>：可以添加一个标志位来判断在一轮遍历中是否发生了元素的交换。如果没有发生交换，说明数组已经有序，可以提前结束排序。</p>
+</li>
+</ol>
+<p>冒泡排序的核心思想是通过相邻元素的比较和交换来将最大（或最小）的元素逐渐移动到数组的末尾。该算法时间复杂度为O(n^2)，其中n是数组的长度。虽然冒泡排序不是一种高效的排序算法，但由于其简单直观的实现方式，对于小规模数据集或已经基本有序的数据集仍具有一定的应用价值。</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><p>以下是冒泡排序的C语言实现示例：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+
+<span class="token keyword">void</span> <span class="token function">bubbleSort</span><span class="token punctuation">(</span><span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 在每一轮中执行比较和交换操作</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token operator">-</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 如果当前元素大于下一个元素，则交换位置</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">></span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">int</span> temp <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                arr<span class="token punctuation">[</span>j<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> arr<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">64</span><span class="token punctuation">,</span> <span class="token number">34</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">22</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"原始数组："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">bubbleSort</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"排序后数组："</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d "</span><span class="token punctuation">,</span> arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>该示例中，我们定义了一个<code>bubbleSort</code>函数来实现冒泡排序。在主函数中，我们声明了一个整型数组<code>arr</code>，然后调用<code>bubbleSort</code>函数对其进行排序。最后，打印排序前后的数组内容。</p>
+<p>运行以上代码，输出结果为：</p>
+<pre class="line-numbers language-none"><code class="language-none">原始数组：64 34 25 12 22 11 90 
+排序后数组：11 12 22 25 34 64 90 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>可见，冒泡排序成功地将数组元素从小到大进行了排序。请注意，这只是冒泡排序的其中一种实现方式，你可以根据需要进行修改和优化。</p>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><p>尽管冒泡排序在时间复杂度上不如其他高级排序算法，但它仍然有一些应用场景。以下是一些适合使用冒泡排序的情况：</p>
+<ol>
+<li><p><strong>小规模数据集</strong>：由于冒泡排序的实现简单直观，对于小规模的数据集来说，其性能表现可接受。</p>
+</li>
+<li><p><strong>部分有序数组</strong>：当待排序的数组已经基本有序时，冒泡排序的效率会更高。因为冒泡排序的特点是每次都会将最大（或最小）的元素交换到末尾，所以对于部分有序的数组，只需进行少量的比较和交换操作即可完成排序。</p>
+</li>
+<li><p><strong>教学和理解</strong>：冒泡排序是最简单的排序算法之一，非常适合作为教学工具，帮助初学者理解排序算法的基本原理和思想。</p>
+</li>
+<li><p><strong>稳定性要求</strong>：冒泡排序是一种稳定的排序算法，即相等元素的相对顺序不变。在某些情况下，对于需要保持相等元素顺序的应用场景，冒泡排序是一个合适的选择。</p>
+</li>
+</ol>
+<p>需要注意的是，对于大规模的数据集，冒泡排序的性能不够理想，建议使用更高效的排序算法，如快速排序、归并排序等。冒泡排序的主要应用场景是在小规模数据和部分有序数组情况下，或作为教学使用，而不适用于大规模数据和时间敏感的应用。</p>
+<h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><p>冒泡排序是一种简单但效率较低的排序算法，由于其两两比较和交换的思想，导致在大多数情况下需要进行多次无意义的比较和交换操作。为了提高冒泡排序的效率，可以采用以下几种优化方法：</p>
+<ol>
+<li><p>设置标志位：在每一轮内部循环中，如果没有发生元素的交换操作，说明待排序序列已经有序，可以提前结束排序过程。</p>
+</li>
+<li><p>记录最后一次交换位置：在每一轮内部循环中，记录最后一次元素交换的位置，该位置之后的元素已经有序，因此下一轮只需比较到这个位置即可。</p>
+</li>
+<li><p>双向冒泡排序：正常的冒泡排序是从左到右依次比较相邻元素并进行交换，而双向冒泡排序可以同时从左到右和从右到左进行相邻元素的比较和交换操作，从而减少排序的趟数。</p>
+</li>
+<li><p>针对优化情况的增量设置：对于一些已基本有序的序列，可以通过设定适当的增量（如步长）来进行排序，使得每一趟排序的跨度减小，从而加快排序速度。例如，可以使用希尔增量序列或者其他合适的增量序列。</p>
+</li>
+</ol>
+<p>这些优化方法都是基于冒泡排序的思想，通过剪枝和减少比较交换次数来提高效率。然而，尽管这些优化方法可以降低冒泡排序的时间复杂度，并且在某些特定情况下可能具有较好的性能表现，但在大多数实际应用中，其他更为高效的排序算法（如快速排序或归并排序）通常更受青睐。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Yang Tong
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://yangtong93.github.io/yangtong.github.io/2023/08/03/algorihtm/bubble/" title="冒泡排序">https://yangtong93.github.io/yangtong.github.io/2023/08/03/algorihtm/bubble/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/yangtong.github.io/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/yangtong.github.io/2023/08/03/algorihtm/shell/" rel="prev" title="希尔排序">
+                  <i class="fa fa-chevron-left"></i> 希尔排序
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/yangtong.github.io/2023/08/03/algorihtm/quick/" rel="next" title="快速排序">
+                  快速排序 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yang Tong</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/yangtong.github.io/js/comments.js"></script><script src="/yangtong.github.io/js/utils.js"></script><script src="/yangtong.github.io/js/motion.js"></script><script src="/yangtong.github.io/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/yangtong.github.io/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  <script src="/yangtong.github.io/js/third-party/pace.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
