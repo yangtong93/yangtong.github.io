@@ -1209,6 +1209,17 @@
       </tags>
   </entry>
   <entry>
+    <title>B+树</title>
+    <url>/yangtong.github.io/2023/07/28/datastruct/bplustree/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二叉树</title>
     <url>/yangtong.github.io/2023/07/28/datastruct/binarytree/</url>
     <content><![CDATA[]]></content>
@@ -1220,8 +1231,8 @@
       </tags>
   </entry>
   <entry>
-    <title>二叉搜索树</title>
-    <url>/yangtong.github.io/2023/07/28/datastruct/binarysearchtree/</url>
+    <title>平衡二叉树</title>
+    <url>/yangtong.github.io/2023/07/28/datastruct/balancedbinarytree/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>数据结构</category>
@@ -1231,8 +1242,8 @@
       </tags>
   </entry>
   <entry>
-    <title>平衡二叉树</title>
-    <url>/yangtong.github.io/2023/07/28/datastruct/balancedbinarytree/</url>
+    <title>二叉搜索树</title>
+    <url>/yangtong.github.io/2023/07/28/datastruct/binarysearchtree/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>数据结构</category>
@@ -1277,17 +1288,6 @@
   <entry>
     <title>字典树</title>
     <url>/yangtong.github.io/2023/07/28/datastruct/trie/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>B+树</title>
-    <url>/yangtong.github.io/2023/07/28/datastruct/bplustree/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>数据结构</category>
@@ -2337,99 +2337,6 @@ a[4][1] &#x3D; 8<span aria-hidden="true" class="line-numbers-rows"><span></span>
       </tags>
   </entry>
   <entry>
-    <title>数据结构</title>
-    <url>/yangtong.github.io/2023/07/10/datastruct/datastruct/</url>
-    <content><![CDATA[<blockquote>
-<p>数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="概念与定义"><a href="#概念与定义" class="headerlink" title="概念与定义"></a>概念与定义</h2><blockquote>
-<p>数据结构(data structure)是带有结构特性的数据元素的集合，它研究的是数据的逻辑结构和数据的物理结构以及它们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍保持原来的结构类型。</p>
-</blockquote>
-<blockquote>
-<p>简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
-</blockquote>
-<h2 id="研究对象"><a href="#研究对象" class="headerlink" title="研究对象"></a>研究对象</h2><h3 id="数据逻辑结构"><a href="#数据逻辑结构" class="headerlink" title="数据逻辑结构"></a>数据逻辑结构</h3><p>指反映数据元素之间的逻辑关系的数据结构，其中的逻辑关系是指数据元素之间的前后间关系，而与他们在计算机中的存储位置无关。逻辑结构包括：</p>
-<ol>
-<li>集合：数据结构中的元素之间除了“同属一个集合” 的相互关系外，别无其他关系<br><img src="/yangtong.github.io/images/set.png"></li>
-<li>线性结构：数据结构中的元素存在一对一的相互关系<br><img src="/yangtong.github.io/images/array.png"></li>
-<li>树形结构：数据结构中的元素存在一对多的相互关系<br><img src="/yangtong.github.io/images/tree.png"></li>
-<li>图形结构：数据结构中的元素存在多对多的相互关系<br><img src="/yangtong.github.io/images/graph.png"></li>
-</ol>
-<h3 id="数据物理结构"><a href="#数据物理结构" class="headerlink" title="数据物理结构"></a>数据物理结构</h3><p>数据的物理结构是数据结构在计算机中的表示（又称映像），它包括数据元素的机内表示和关系的机内表示。由于具体实现的方法有顺序、链接、索引、散列等多种，所以，一种数据结构可表示成一种或多种存储结构。</p>
-<h3 id="数据存储结构"><a href="#数据存储结构" class="headerlink" title="数据存储结构"></a>数据存储结构</h3><p>数据的逻辑结构在计算机存储空间中的存放形式称为数据的物理结构(也称为存储结构)。</p>
-<p>常用的存储结构有顺序存储、链式存储、索引存储和哈希存储等。</p>
-<ul>
-<li>数据的顺序存储结构的特点是：借助元素在存储器中的相对位置来表示数据元素之间的逻辑关系；</li>
-<li>非顺序存储的特点是：借助指示元素存储地址的指针表示数据元素之间的逻辑关系。</li>
-</ul>
-<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>数据结构有很多种，一般来说，按照数据的逻辑结构对其进行简单的分类，包括线性结构和非线性结构两类。 </p>
-<h3 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h3><p>简单地说，线性结构就是表中各个结点具有线性关系。如果从数据结构的语言来描述，线性结构应该包括如下几点： </p>
-<ol>
-<li>线性结构是非空集。 </li>
-<li>线性结构有且仅有一个开始结点和一个终端结点。 </li>
-<li>线性结构所有结点都最多只有一个直接前驱结点和一个直接后继结点。</li>
-</ol>
-<p>常见的线性结构：</p>
-<ol>
-<li>数组（Array）</li>
-<li>链表（Linked List）</li>
-<li>栈（Stack）</li>
-<li>队列（Queue）</li>
-<li>双端队列（Deque）</li>
-<li>线性表（List）</li>
-</ol>
-<h3 id="非线性结构"><a href="#非线性结构" class="headerlink" title="非线性结构"></a>非线性结构</h3><p>简单地说，非线性结构就是表中各个结点之间具有多个对应关系。如果从数据结构的语言来描述，非线性结构应该包括如下几点： </p>
-<ol>
-<li>非线性结构是非空集。 </li>
-<li>非线性结构的一个结点可能有多个直接前驱结点和多个直接后继结点。</li>
-</ol>
-<p>常见的非线性结构：</p>
-<ol>
-<li>树（Tree）</li>
-<li>图（Graph）</li>
-<li>堆（Heap）</li>
-<li>散列表（Hash Table）</li>
-<li>图论中的树和森林</li>
-</ol>
-<h2 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h2><h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h3><p>数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。数组可以说是最基本的数据结构，在各种编程语言中都有对应。一个数组可以分解为多个数组元素，按照数据元素的类型，数组可以分为整型数组、字符型数组、浮点型数组、指针数组和结构数组等。数组还可以有一维、二维以及多维等表现形式。 </p>
-<h3 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈( Stack)"></a>栈( Stack)</h3><p>栈是一种特殊的线性表，它只能在一个表的一个固定端进行数据结点的插入和删除操作。栈按照先进后出或后进先出的原则来存储数据，也就是说，先插入的数据将被压入栈底，最后插入的数据在栈顶，读出数据时，从栈顶开始逐个读出。栈在汇编语言程序中，经常用于重要数据的现场保护。栈中没有数据时，称为空栈。 </p>
-<h3 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h3><p>队列和栈类似，也是一种特殊的线性表。和栈不同的是，队列只允许在表的一端进行插入操作，而在另一端进行删除操作。一般来说，进行插入操作的一端称为队尾，进行删除操作的一端称为队头。队列中没有元素时，称为空队列。 </p>
-<h3 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表( Linked List)"></a>链表( Linked List)</h3><p>链表是一种数据元素按照链式存储结构进行存储的数据结构，这种存储结构具有在物理上存在非连续的特点。链表由一系列数据结点构成，每个数据结点包括数据域和指针域两部分。其中，指针域保存了数据结构中下一个元素存放的地址。链表结构中数据元素的逻辑顺序是通过链表中的指针链接次序来实现的。 </p>
-<h2 id="树形数据结构"><a href="#树形数据结构" class="headerlink" title="树形数据结构"></a>树形数据结构</h2><p>树形数据结构是一种分层的、非线性的数据结构，由节点和边组成。它模拟了现实世界中的树结构，具有一个根节点以及零个或多个子节点。树形数据结构在计算机科学中有广泛的应用，如文件系统、数据库索引、组织结构等。</p>
-<h3 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树( Tree)"></a>树( Tree)</h3><p>树是典型的非线性结构，它是包括，2个结点的有穷集合K。在树结构中，有且仅有一个根结点，该结点没有前驱结点。在树结构中的其他结点都有且仅有一个前驱结点，而且可以有两个后继结点，m≥0。 </p>
-<h3 id="二叉树（Binary-Tree）"><a href="#二叉树（Binary-Tree）" class="headerlink" title="二叉树（Binary Tree）"></a>二叉树（Binary Tree）</h3><p>每个节点最多有两个子节点，分别称为左子节点和右子节点。二叉树可以是空树，也可以只有根节点。</p>
-<ul>
-<li>完全二叉树（Complete Binary Tree）：除了最后一层外，其他层的节点都要填满，且最后一层从左到右连续填入节点。</li>
-<li>满二叉树（Full Binary Tree）：每个节点要么没有子节点，要么有两个子节点。<br>二叉搜索树（Binary Search Tree）：二叉搜索树是一种有序的二叉树，其中任意节点的值都大于其左子树中的所有节点的值，而小于其右子树中的所有节点的值。这使得查找、插入和删除操作的时间复杂度可以在平均情况下达到 O(log n)。</li>
-</ul>
-<h3 id="AVL-树（Adelson-Velsky-and-Landis-Tree）"><a href="#AVL-树（Adelson-Velsky-and-Landis-Tree）" class="headerlink" title="AVL 树（Adelson-Velsky and Landis Tree）"></a>AVL 树（Adelson-Velsky and Landis Tree）</h3><p>AVL 树是一种自平衡的二叉搜索树，它通过旋转操作来保持树的平衡性。在 AVL 树中，任意节点的左子树和右子树的高度差（平衡因子）不超过 1。</p>
-<h3 id="红黑树（Red-Black-Tree）"><a href="#红黑树（Red-Black-Tree）" class="headerlink" title="红黑树（Red-Black Tree）"></a>红黑树（Red-Black Tree）</h3><p>红黑树也是一种自平衡的二叉搜索树，它通过颜色标记来保持树的平衡性。在红黑树中，节点被标记为红色或黑色，并且遵循一些规则，如根节点和叶子节点（NIL 节点）都是黑色，红色节点的子节点必须是黑色等。</p>
-<h3 id="B-树（B-Tree）"><a href="#B-树（B-Tree）" class="headerlink" title="B 树（B-Tree）"></a>B 树（B-Tree）</h3><p>B 树是一种多路搜索树，用于处理大量数据的外部存储器操作。它具有多个子节点和一个关键字集合，可以支持高效的插入、删除和查找操作。B 树适用于磁盘或其他随机访问时间较长的存储设备。</p>
-<h3 id="字典树（Trie）"><a href="#字典树（Trie）" class="headerlink" title="字典树（Trie）"></a>字典树（Trie）</h3><p>字典树是一种专门为快速查找和插入单词而设计的树结构。每个节点代表一个字符，并且从根节点到叶子节点的路径构成了一个完整的单词。字典树通常用于实现字典、拼写检查和字符串匹配算法。</p>
-<h2 id="图形数据结构"><a href="#图形数据结构" class="headerlink" title="图形数据结构"></a>图形数据结构</h2><p>图是另一种非线性数据结构。在图结构中，数据结点一般称为顶点，而边是顶点的有序偶对。如果两个顶点之间存在一条边，那么就表示这两个顶点具有相邻关系。</p>
-<h3 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h3><ul>
-<li>无向图是一种图形数据结构，其中的边没有方向或箭头。任意两个节点之间的连接都是双向的。</li>
-<li>无向图可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，用于记录节点之间的连接关系；邻接表是一个链表数组，每个节点都有一个链表存储与其相连的节点。</li>
-</ul>
-<h3 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h3><ul>
-<li>有向图是一种图形数据结构，其中的边具有方向或箭头，表示从一个节点指向另一个节点的关系。</li>
-<li>有向图也可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，其中的元素表示边的方向和权重；邻接表是一个链表数组，每个节点都有一个链表存储从该节点出发的边和目标节点。</li>
-</ul>
-<h3 id="加权图"><a href="#加权图" class="headerlink" title="加权图"></a>加权图</h3><ul>
-<li>加权图是一种图形数据结构，在边上附加了权重或成本信息。这些权重可以表示距离、时间、容量等。</li>
-<li>加权图可以用邻接矩阵或邻接表来表示，与无向图和有向图类似。不同之处在于邻接矩阵的元素表示边的权重，而邻接表中的链表节点包含权重信息。</li>
-</ul>
-<h2 id="散列（哈希）数据结构"><a href="#散列（哈希）数据结构" class="headerlink" title="散列（哈希）数据结构"></a>散列（哈希）数据结构</h2><h3 id="散列表-Hash"><a href="#散列表-Hash" class="headerlink" title="散列表(Hash)"></a>散列表(Hash)</h3><p>散列（哈希）数据结构是一种通过使用哈希函数将键映射到存储位置的数据结构。它可以高效地插入、查找和删除数据。</p>
-]]></content>
-      <categories>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法</title>
     <url>/yangtong.github.io/2023/07/10/algorihtm/algorihtm/</url>
     <content><![CDATA[<blockquote>
@@ -2675,6 +2582,99 @@ a[4][1] &#x3D; 8<span aria-hidden="true" class="line-numbers-rows"><span></span>
       </categories>
       <tags>
         <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构</title>
+    <url>/yangtong.github.io/2023/07/10/datastruct/datastruct/</url>
+    <content><![CDATA[<blockquote>
+<p>数据结构是计算机存储、组织数据的方式。数据结构是指相互之间存在一种或多种特定关系的数据元素的集合。通常情况下，精心选择的数据结构可以带来更高的运行或者存储效率。数据结构往往同高效的检索算法和索引技术有关。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="概念与定义"><a href="#概念与定义" class="headerlink" title="概念与定义"></a>概念与定义</h2><blockquote>
+<p>数据结构(data structure)是带有结构特性的数据元素的集合，它研究的是数据的逻辑结构和数据的物理结构以及它们之间的相互关系，并对这种结构定义相适应的运算，设计出相应的算法，并确保经过这些运算以后所得到的新结构仍保持原来的结构类型。</p>
+</blockquote>
+<blockquote>
+<p>简而言之，数据结构是相互之间存在一种或多种特定关系的数据元素的集合，即带“结构”的数据元素的集合。“结构”就是指数据元素之间存在的关系，分为逻辑结构和存储结构。</p>
+</blockquote>
+<h2 id="研究对象"><a href="#研究对象" class="headerlink" title="研究对象"></a>研究对象</h2><h3 id="数据逻辑结构"><a href="#数据逻辑结构" class="headerlink" title="数据逻辑结构"></a>数据逻辑结构</h3><p>指反映数据元素之间的逻辑关系的数据结构，其中的逻辑关系是指数据元素之间的前后间关系，而与他们在计算机中的存储位置无关。逻辑结构包括：</p>
+<ol>
+<li>集合：数据结构中的元素之间除了“同属一个集合” 的相互关系外，别无其他关系<br><img src="/yangtong.github.io/images/set.png"></li>
+<li>线性结构：数据结构中的元素存在一对一的相互关系<br><img src="/yangtong.github.io/images/array.png"></li>
+<li>树形结构：数据结构中的元素存在一对多的相互关系<br><img src="/yangtong.github.io/images/tree.png"></li>
+<li>图形结构：数据结构中的元素存在多对多的相互关系<br><img src="/yangtong.github.io/images/graph.png"></li>
+</ol>
+<h3 id="数据物理结构"><a href="#数据物理结构" class="headerlink" title="数据物理结构"></a>数据物理结构</h3><p>数据的物理结构是数据结构在计算机中的表示（又称映像），它包括数据元素的机内表示和关系的机内表示。由于具体实现的方法有顺序、链接、索引、散列等多种，所以，一种数据结构可表示成一种或多种存储结构。</p>
+<h3 id="数据存储结构"><a href="#数据存储结构" class="headerlink" title="数据存储结构"></a>数据存储结构</h3><p>数据的逻辑结构在计算机存储空间中的存放形式称为数据的物理结构(也称为存储结构)。</p>
+<p>常用的存储结构有顺序存储、链式存储、索引存储和哈希存储等。</p>
+<ul>
+<li>数据的顺序存储结构的特点是：借助元素在存储器中的相对位置来表示数据元素之间的逻辑关系；</li>
+<li>非顺序存储的特点是：借助指示元素存储地址的指针表示数据元素之间的逻辑关系。</li>
+</ul>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p>数据结构有很多种，一般来说，按照数据的逻辑结构对其进行简单的分类，包括线性结构和非线性结构两类。 </p>
+<h3 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h3><p>简单地说，线性结构就是表中各个结点具有线性关系。如果从数据结构的语言来描述，线性结构应该包括如下几点： </p>
+<ol>
+<li>线性结构是非空集。 </li>
+<li>线性结构有且仅有一个开始结点和一个终端结点。 </li>
+<li>线性结构所有结点都最多只有一个直接前驱结点和一个直接后继结点。</li>
+</ol>
+<p>常见的线性结构：</p>
+<ol>
+<li>数组（Array）</li>
+<li>链表（Linked List）</li>
+<li>栈（Stack）</li>
+<li>队列（Queue）</li>
+<li>双端队列（Deque）</li>
+<li>线性表（List）</li>
+</ol>
+<h3 id="非线性结构"><a href="#非线性结构" class="headerlink" title="非线性结构"></a>非线性结构</h3><p>简单地说，非线性结构就是表中各个结点之间具有多个对应关系。如果从数据结构的语言来描述，非线性结构应该包括如下几点： </p>
+<ol>
+<li>非线性结构是非空集。 </li>
+<li>非线性结构的一个结点可能有多个直接前驱结点和多个直接后继结点。</li>
+</ol>
+<p>常见的非线性结构：</p>
+<ol>
+<li>树（Tree）</li>
+<li>图（Graph）</li>
+<li>堆（Heap）</li>
+<li>散列表（Hash Table）</li>
+<li>图论中的树和森林</li>
+</ol>
+<h2 id="线性数据结构"><a href="#线性数据结构" class="headerlink" title="线性数据结构"></a>线性数据结构</h2><h3 id="数组-Array"><a href="#数组-Array" class="headerlink" title="数组(Array)"></a>数组(Array)</h3><p>数组是一种聚合数据类型，它是将具有相同类型的若干变量有序地组织在一起的集合。数组可以说是最基本的数据结构，在各种编程语言中都有对应。一个数组可以分解为多个数组元素，按照数据元素的类型，数组可以分为整型数组、字符型数组、浮点型数组、指针数组和结构数组等。数组还可以有一维、二维以及多维等表现形式。 </p>
+<h3 id="栈-Stack"><a href="#栈-Stack" class="headerlink" title="栈( Stack)"></a>栈( Stack)</h3><p>栈是一种特殊的线性表，它只能在一个表的一个固定端进行数据结点的插入和删除操作。栈按照先进后出或后进先出的原则来存储数据，也就是说，先插入的数据将被压入栈底，最后插入的数据在栈顶，读出数据时，从栈顶开始逐个读出。栈在汇编语言程序中，经常用于重要数据的现场保护。栈中没有数据时，称为空栈。 </p>
+<h3 id="队列-Queue"><a href="#队列-Queue" class="headerlink" title="队列(Queue)"></a>队列(Queue)</h3><p>队列和栈类似，也是一种特殊的线性表。和栈不同的是，队列只允许在表的一端进行插入操作，而在另一端进行删除操作。一般来说，进行插入操作的一端称为队尾，进行删除操作的一端称为队头。队列中没有元素时，称为空队列。 </p>
+<h3 id="链表-Linked-List"><a href="#链表-Linked-List" class="headerlink" title="链表( Linked List)"></a>链表( Linked List)</h3><p>链表是一种数据元素按照链式存储结构进行存储的数据结构，这种存储结构具有在物理上存在非连续的特点。链表由一系列数据结点构成，每个数据结点包括数据域和指针域两部分。其中，指针域保存了数据结构中下一个元素存放的地址。链表结构中数据元素的逻辑顺序是通过链表中的指针链接次序来实现的。 </p>
+<h2 id="树形数据结构"><a href="#树形数据结构" class="headerlink" title="树形数据结构"></a>树形数据结构</h2><p>树形数据结构是一种分层的、非线性的数据结构，由节点和边组成。它模拟了现实世界中的树结构，具有一个根节点以及零个或多个子节点。树形数据结构在计算机科学中有广泛的应用，如文件系统、数据库索引、组织结构等。</p>
+<h3 id="树-Tree"><a href="#树-Tree" class="headerlink" title="树( Tree)"></a>树( Tree)</h3><p>树是典型的非线性结构，它是包括，2个结点的有穷集合K。在树结构中，有且仅有一个根结点，该结点没有前驱结点。在树结构中的其他结点都有且仅有一个前驱结点，而且可以有两个后继结点，m≥0。 </p>
+<h3 id="二叉树（Binary-Tree）"><a href="#二叉树（Binary-Tree）" class="headerlink" title="二叉树（Binary Tree）"></a>二叉树（Binary Tree）</h3><p>每个节点最多有两个子节点，分别称为左子节点和右子节点。二叉树可以是空树，也可以只有根节点。</p>
+<ul>
+<li>完全二叉树（Complete Binary Tree）：除了最后一层外，其他层的节点都要填满，且最后一层从左到右连续填入节点。</li>
+<li>满二叉树（Full Binary Tree）：每个节点要么没有子节点，要么有两个子节点。<br>二叉搜索树（Binary Search Tree）：二叉搜索树是一种有序的二叉树，其中任意节点的值都大于其左子树中的所有节点的值，而小于其右子树中的所有节点的值。这使得查找、插入和删除操作的时间复杂度可以在平均情况下达到 O(log n)。</li>
+</ul>
+<h3 id="AVL-树（Adelson-Velsky-and-Landis-Tree）"><a href="#AVL-树（Adelson-Velsky-and-Landis-Tree）" class="headerlink" title="AVL 树（Adelson-Velsky and Landis Tree）"></a>AVL 树（Adelson-Velsky and Landis Tree）</h3><p>AVL 树是一种自平衡的二叉搜索树，它通过旋转操作来保持树的平衡性。在 AVL 树中，任意节点的左子树和右子树的高度差（平衡因子）不超过 1。</p>
+<h3 id="红黑树（Red-Black-Tree）"><a href="#红黑树（Red-Black-Tree）" class="headerlink" title="红黑树（Red-Black Tree）"></a>红黑树（Red-Black Tree）</h3><p>红黑树也是一种自平衡的二叉搜索树，它通过颜色标记来保持树的平衡性。在红黑树中，节点被标记为红色或黑色，并且遵循一些规则，如根节点和叶子节点（NIL 节点）都是黑色，红色节点的子节点必须是黑色等。</p>
+<h3 id="B-树（B-Tree）"><a href="#B-树（B-Tree）" class="headerlink" title="B 树（B-Tree）"></a>B 树（B-Tree）</h3><p>B 树是一种多路搜索树，用于处理大量数据的外部存储器操作。它具有多个子节点和一个关键字集合，可以支持高效的插入、删除和查找操作。B 树适用于磁盘或其他随机访问时间较长的存储设备。</p>
+<h3 id="字典树（Trie）"><a href="#字典树（Trie）" class="headerlink" title="字典树（Trie）"></a>字典树（Trie）</h3><p>字典树是一种专门为快速查找和插入单词而设计的树结构。每个节点代表一个字符，并且从根节点到叶子节点的路径构成了一个完整的单词。字典树通常用于实现字典、拼写检查和字符串匹配算法。</p>
+<h2 id="图形数据结构"><a href="#图形数据结构" class="headerlink" title="图形数据结构"></a>图形数据结构</h2><p>图是另一种非线性数据结构。在图结构中，数据结点一般称为顶点，而边是顶点的有序偶对。如果两个顶点之间存在一条边，那么就表示这两个顶点具有相邻关系。</p>
+<h3 id="无向图"><a href="#无向图" class="headerlink" title="无向图"></a>无向图</h3><ul>
+<li>无向图是一种图形数据结构，其中的边没有方向或箭头。任意两个节点之间的连接都是双向的。</li>
+<li>无向图可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，用于记录节点之间的连接关系；邻接表是一个链表数组，每个节点都有一个链表存储与其相连的节点。</li>
+</ul>
+<h3 id="有向图"><a href="#有向图" class="headerlink" title="有向图"></a>有向图</h3><ul>
+<li>有向图是一种图形数据结构，其中的边具有方向或箭头，表示从一个节点指向另一个节点的关系。</li>
+<li>有向图也可以用邻接矩阵或邻接表来表示。邻接矩阵是一个二维数组，其中的元素表示边的方向和权重；邻接表是一个链表数组，每个节点都有一个链表存储从该节点出发的边和目标节点。</li>
+</ul>
+<h3 id="加权图"><a href="#加权图" class="headerlink" title="加权图"></a>加权图</h3><ul>
+<li>加权图是一种图形数据结构，在边上附加了权重或成本信息。这些权重可以表示距离、时间、容量等。</li>
+<li>加权图可以用邻接矩阵或邻接表来表示，与无向图和有向图类似。不同之处在于邻接矩阵的元素表示边的权重，而邻接表中的链表节点包含权重信息。</li>
+</ul>
+<h2 id="散列（哈希）数据结构"><a href="#散列（哈希）数据结构" class="headerlink" title="散列（哈希）数据结构"></a>散列（哈希）数据结构</h2><h3 id="散列表-Hash"><a href="#散列表-Hash" class="headerlink" title="散列表(Hash)"></a>散列表(Hash)</h3><p>散列（哈希）数据结构是一种通过使用哈希函数将键映射到存储位置的数据结构。它可以高效地插入、查找和删除数据。</p>
+]]></content>
+      <categories>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
